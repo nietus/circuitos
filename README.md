@@ -1,1 +1,1 @@
-# circuitos
+Repositorio para compartilhamento de circuitos feitos durante AC II e estudos para dar aulas da monitoria de AC I
