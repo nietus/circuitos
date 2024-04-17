@@ -1,1 +1,1 @@
-Repositorio para compartilhamento de circuitos feitos durante AC II e estudos para dar aulas da monitoria de AC I
+Circuits and codes for Computer Architeture 2's subject
