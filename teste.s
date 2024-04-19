@@ -2,11 +2,13 @@
 	.def	___main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
 LC0:
-	.ascii "%d\0"
+	.ascii "Opcao 1 selecionada.\0"
 LC1:
-	.ascii "10\0"
+	.ascii "Opcao 2 selecionada.\0"
 LC2:
-	.ascii "default\0"
+	.ascii "Opcao 3 selecionada.\0"
+LC3:
+	.ascii "Opcao invalida.\0"
 	.text
 	.globl	_main
 	.def	_main;	.scl	2;	.type	32;	.endef
@@ -21,20 +23,29 @@ LFB10:
 	andl	$-16, %esp
 	subl	$32, %esp
 	call	___main
-	leal	28(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	$LC0, (%esp)
-	call	_scanf
+	movl	$2, 28(%esp)
 	movl	28(%esp), %eax
-	cmpl	$10, %eax
-	jne	L2
-	movl	$LC1, (%esp)
-	call	_printf
-	jmp	L3
-L2:
-	movl	$LC2, (%esp)
-	call	_printf
+	cmpl	$2, %eax
+	je	L3
+	cmpl	$3, %eax
+	je	L4
+	cmpl	$1, %eax
+	jne	L8
+	movl	$LC0, (%esp)
+	call	_puts
+	jmp	L6
 L3:
+	movl	$LC1, (%esp)
+	call	_puts
+	jmp	L6
+L4:
+	movl	$LC2, (%esp)
+	call	_puts
+	jmp	L6
+L8:
+	movl	$LC3, (%esp)
+	call	_puts
+L6:
 	movl	$0, %eax
 	leave
 	.cfi_restore 5
@@ -43,5 +54,4 @@ L3:
 	.cfi_endproc
 LFE10:
 	.ident	"GCC: (MinGW.org GCC-6.3.0-1) 6.3.0"
-	.def	_scanf;	.scl	2;	.type	32;	.endef
-	.def	_printf;	.scl	2;	.type	32;	.endef
+	.def	_puts;	.scl	2;	.type	32;	.endef
