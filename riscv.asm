@@ -556,14 +556,80 @@
 #         x = 0;
 # }
 
+# .data
+# temp: .word 25
+# x: .word 0
 
+# .text
+# .globl _start
+# _start:
+#     # Carregar endereços das variáveis em registradores
+#     la t0, temp
+#     la t1, x
+    
+#     # Carregar valores das variáveis em registradores
+#     lw s0, 0(t0)  # Carregar valor de temp em s0
+    
+#     # Switch-case
+#     li t2, 10      # Caso 10
+#     beq s0, t2, case_10   # Se temp == 10, vá para case_10
+#     li t2, 25      # Caso 25
+#     beq s0, t2, case_25   # Se temp == 25, vá para case_25
+
+#     # Caso padrão (default)
+#     li t2, 0       # x = 0
+#     sw t2, 0(t1)   # Armazenar 0 em x
+#     j end_switch   # Ir para o final do switch-case
+
+# case_10:
+#     # Caso 10: x = 10
+#     li t2, 10      # Valor 10
+#     sw t2, 0(t1)   # Armazenar 10 em x
+#     j end_switch   # Ir para o final do switch-case
+
+# case_25:
+#     # Caso 25: x = 25
+#     li t2, 25      # Valor 25
+#     sw t2, 0(t1)   # Armazenar 25 em x
+
+# end_switch:
+#     nop
 
 # Programa 19
 # Substitua o código abaixo em assembly. As variáveis i e x devem ser armazenadas nos registradores s0 e s1 respectivamente.
 # while(i == 8){
 #     x = i++;
-# }
+# } 
+# Sai do loop se i != 8 
 
+# .data
+# i: .word 8  # Valor inicial de i
+# x: .word 0  # Variável x
+
+# .text
+# .globl _main
+
+# _main:
+#     # Carregar endereços das variáveis em registradores
+#     la t0, i
+#     la t1, x
+    
+# loop:
+#     # Carregar valores das variáveis em registradores
+#     lw s0, 0(t0)  # Carregar valor de i em s0
+    
+#     # Se i != 8, sair do loop
+#     li t2, 8
+#     bne s0, t2, exit_loop
+
+#     # Se i == 8, o loop continua
+#     sw s0, 0(t1)    # Atribuir o valor de i a x
+#     addi s0, s0, 1  # Incrementar i
+#     sw s0, 0(t0)    # Atualizar o valor de i na memória
+#     j loop
+
+# exit_loop:
+#     nop
 
 
 # Programa 20
@@ -574,7 +640,42 @@
 #    A[i]=A[i]+1;
 # }
 
+# .data
+# i: .word 0
+# offset: .word 0
+# A: .word 0,0,0,0,0,0,0,0,0,0
 
+# .text
+# .globl _start
+
+# _start:
+#     la t0, i
+#     la t1, offset
+#     la t2, A
+
+# loop:
+#     li s0, 10
+#     lw s1, 0(t0)  # Load the value of i
+
+#     # if i >= 10, exit loop
+#     beq s1, s0, end_loop
+#     bgt s1, s0, end_loop
+
+#     # if i < 10
+#     lw s2, 0(t1)    # offset
+#     add s10, s2, t2 # s10 fica o endereco q queremos acessar (t1 + offset)
+#     lw s3, 0(s10)   # A no offset s2
+#     addi s3, s3, 1  # Adiciona 1 no i[a]
+#     sw s3, 0(s10)   # guarda o valor novo no endereço + offset
+#     addi s2, s2, 4  # soma 4 no registrador de offset
+#     sw s2, 0(t1)    # guarda o valor do prox offset
+#     addi s1, s1, 1  # adiciona 1 no i
+#     sw s1, 0(t0)    # atualiza o valor do i
+    
+#     j loop  # Jump back to the beginning of the loop
+
+# end_loop:
+#     nop
 
 # Programa 21
 # Compile para o assembly do RISC-V o código a seguir:
@@ -586,3 +687,100 @@
 #    else 
 #      A[i]=A[i]*2;
 # }
+
+# .data
+# i: .word 0
+# offset: .word 0
+# A: .word 1,2,3,4,5,6,7,8,9,10
+
+# .text
+# .globl _start
+
+# _start:
+#     la t0, i
+#     la t1, offset
+#     la t2, A
+
+# loop:
+#     li s0, 10
+#     lw s1, 0(t0)  # Load the value of i
+
+#     # if i >= 10, exit loop
+#     beq s1, s0, end_loop
+#     bgt s1, s0, end_loop
+
+#     # if i < 10
+#     # if i % 2 == 0
+#     andi t6, s1, 1
+#     beqz t6, par
+    
+#     # else (impar)
+#     j impar
+
+# par:
+#     lw s2, 0(t1)    # offset
+#     add s10, s2, t2 # s10 fica o endereco q queremos acessar (t1 + offset)
+#     lw s3, 0(s10)   # A no offset s2
+#     lw s4, 4(s10)   # A no offset s2 + 1 (4 bytes)
+#     add s3, s3, s4  # a[i] + a[i + 1]
+#     sw s3, 0(s10)   # guarda o valor novo no endereço + offset
+#     addi s2, s2, 4  # soma 4 no registrador de offset
+#     sw s2, 0(t1)    # guarda o valor do prox offset
+#     addi s1, s1, 1  # adiciona 1 no i
+#     sw s1, 0(t0)    # atualiza o valor do i
+#     j loop
+
+# impar:
+#     lw s2, 0(t1)    # offset
+#     add s10, s2, t2 # s10 fica o endereco q queremos acessar (t1 + offset)
+#     lw s3, 0(s10)   # A no offset s2
+#     slli s3, s3, 1  # A * 2
+#     sw s3, 0(s10)   # guarda o valor novo no endereço + offset
+#     addi s2, s2, 4  # soma 4 no registrador de offset
+#     sw s2, 0(t1)    # guarda o valor do prox offset
+#     addi s1, s1, 1  # adiciona 1 no i
+#     sw s1, 0(t0)    # atualiza o valor do i
+#     j loop
+
+# end_loop:
+#     nop
+
+# Programa 22
+# A série de Fibonacci é definida assim: os dois primeiros termos têm o valor 1 e cada termo seguinte é igual à soma dos dois anteriores.
+# 1 1 2 3 5 8 13 21 ...
+# Escreva um programa em linguagem de montagem, que calcule o valor do 9º termo.
+
+# .data
+# n: .word 9      # Contador-alvo
+
+# .text
+# .globl _start
+
+# _start:
+#     # Inicializa os primeiros termos relevantes (ate o terceiro, excluindo o termo 1)
+#     li t0, 1   # fibo(1)
+#     li t1, 2   # fibo(2)
+
+#     # Inicializa o contador
+#     li t2, 3   # começa no 3, pq ja temos valores do fib([0,1,2])
+
+# loop:
+#     # Verifica o contador-alvo ja foi atingido
+#     lw t3, n   # Carrega o valor de n
+#     bge t2, t3, end_loop  # Se o contador for maior ou igual a n, saímos do loop
+
+#     # Calcula o próximo termo da série de fibo
+#     add t4, t0, t1  # fibo(n) = fibo(n-1) + fibo(n-2)
+
+#     # Atualiza os valores dos termos anteriores
+#     mv t0, t1       # fibo(n-2) = fibo(n-1)
+#     mv t1, t4       # fibo(n-1) = fibo(n)
+
+#     # Incrementa o contador de termos
+#     addi t2, t2, 1
+
+#     j loop
+
+# end_loop:
+#     mv a0, t1  # Resultado no t1
+#     nop
