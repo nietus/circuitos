@@ -21,9 +21,9 @@ _start:
 
 loop:
     li s0, 10
-    lw s1, 0(t0)  # Load the value of i
+    lw s1, 0(t0)  # Carrega  valor de i
 
-    # if i >= 10, exit loop
+    # if i >= 10, sair do loop
     beq s1, s0, end_loop
     bgt s1, s0, end_loop
 
@@ -38,7 +38,7 @@ loop:
     addi s1, s1, 1  # adiciona 1 no i
     sw s1, 0(t0)    # atualiza o valor do i
     
-    j loop  # Jump back to the beginning of the loop
+    j loop  # Pula pro inicio do loop
 
 end_loop:
     nop
