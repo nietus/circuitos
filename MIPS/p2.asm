@@ -20,7 +20,7 @@
 .data
     Vetor: .word 1, 3, 5, 7, 9, 11, 13, 0, 2, 4, 6, 8, 10, 12
     size: .word 14                # Tamanho do vetor
-    resultado: .word 0
+    resultado: .word 0            # Variável para armazenar o maior numero
 
 .text
 .globl main

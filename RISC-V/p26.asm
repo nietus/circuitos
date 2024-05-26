@@ -1,3 +1,7 @@
+# Programa 26
+# y = x**3 + 1, se x > 0
+# y = x**4 - 1, se x <= 0
+
 .data
     x: .word -3                    # Altere este valor para diferentes testes
     y: .word 0

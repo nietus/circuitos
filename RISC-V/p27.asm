@@ -11,7 +11,7 @@
 
 .data
     string: .asciiz "Exemplo de string"  # Cadeia de caracteres de exemplo
-    char_to_find: .byte 'e'              # Caractere a ser procurado
+    char_to_find: .byte 'f'              # Caractere a ser procurado
 
 .text
 .globl _start

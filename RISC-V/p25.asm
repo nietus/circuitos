@@ -1,10 +1,10 @@
 # Programa 25
-# y = x4 + x3 - 2x2, se x for par
-# y = x5 - x3 + 1, se x for impar
+# y = x**4 + x**3 - 2x**2, se x for par
+# y = x**5 - x**3 + 1, se x for impar
 # Os valores de x devem ser lidos da primeira posição livre da memória e o valor de y deverá ser escrito na segunda posição livre.
 
 .data
-    x: .word 4                     # Altere este valor para diferentes testes
+    x: .word 2                     # Altere este valor para diferentes testes
     y: .word 0
 
 .text
