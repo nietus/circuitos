@@ -1,0 +1,459 @@
+Running time for fatorial_recursivo with argument 20
+Fatorial de 20 é 2432902008176640000
+
+real	0m0.002s
+user	0m0.002s
+sys	0m0.000s
+Running perf for fatorial_recursivo with argument 20
+Fatorial de 20 é 2432902008176640000
+
+ Performance counter stats for './fatorial_recursivo 20':
+
+              0.47 msec task-clock                #    0.534 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                56      page-faults               #  119.786 K/sec                  
+           1294665      cycles                    #    2.769 GHz                    
+            939715      stalled-cycles-frontend   #   72.58% frontend cycles idle   
+            683815      instructions              #    0.53  insn per cycle         
+                                                  #    1.37  stalled cycles per insn
+            145608      branches                  #  311.461 M/sec                  
+              7592      branch-misses             #    5.21% of all branches        
+            185119      L1-dcache-loads           #  395.976 M/sec                  
+             16206      L1-dcache-load-misses     #    8.75% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000875252 seconds time elapsed
+
+       0.000132000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_recursivo with argument 21
+Fatorial de 21 é -4249290049419214848
+
+real	0m0.001s
+user	0m0.001s
+sys	0m0.000s
+Running perf for fatorial_recursivo with argument 21
+Fatorial de 21 é -4249290049419214848
+
+ Performance counter stats for './fatorial_recursivo 21':
+
+              0.49 msec task-clock                #    0.049 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                56      page-faults               #  113.844 K/sec                  
+           1347972      cycles                    #    2.740 GHz                    
+            986284      stalled-cycles-frontend   #   73.17% frontend cycles idle   
+            680935      instructions              #    0.51  insn per cycle         
+                                                  #    1.45  stalled cycles per insn
+            144956      branches                  #  294.686 M/sec                  
+              8056      branch-misses             #    5.56% of all branches        
+            184720      L1-dcache-loads           #  375.523 M/sec                  
+             17028      L1-dcache-load-misses     #    9.22% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.010014296 seconds time elapsed
+
+       0.000892000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_recursivo with argument 22
+Fatorial de 22 é -1250660718674968576
+
+real	0m0.015s
+user	0m0.001s
+sys	0m0.014s
+Running perf for fatorial_recursivo with argument 22
+Fatorial de 22 é -1250660718674968576
+
+ Performance counter stats for './fatorial_recursivo 22':
+
+              0.50 msec task-clock                #    0.467 CPUs utilized          
+                 1      context-switches          #    1.984 K/sec                  
+                 0      cpu-migrations            #    0.000 /sec                   
+                55      page-faults               #  109.105 K/sec                  
+           1383622      cycles                    #    2.745 GHz                    
+           1022458      stalled-cycles-frontend   #   73.90% frontend cycles idle   
+            682004      instructions              #    0.49  insn per cycle         
+                                                  #    1.50  stalled cycles per insn
+            145355      branches                  #  288.346 M/sec                  
+              8122      branch-misses             #    5.59% of all branches        
+            184899      L1-dcache-loads           #  366.790 M/sec                  
+             17589      L1-dcache-load-misses     #    9.51% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.001080464 seconds time elapsed
+
+       0.001106000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_recursivo with argument 23
+Fatorial de 23 é 8128291617894825984
+
+real	0m0.007s
+user	0m0.001s
+sys	0m0.001s
+Running perf for fatorial_recursivo with argument 23
+Fatorial de 23 é 8128291617894825984
+
+ Performance counter stats for './fatorial_recursivo 23':
+
+              0.50 msec task-clock                #    0.588 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                55      page-faults               #  110.664 K/sec                  
+           1315955      cycles                    #    2.648 GHz                    
+            959712      stalled-cycles-frontend   #   72.93% frontend cycles idle   
+            675530      instructions              #    0.51  insn per cycle         
+                                                  #    1.42  stalled cycles per insn
+            143422      branches                  #  288.575 M/sec                  
+              7685      branch-misses             #    5.36% of all branches        
+            182817      L1-dcache-loads           #  367.841 M/sec                  
+             17147      L1-dcache-load-misses     #    9.38% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000844950 seconds time elapsed
+
+       0.000066000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_recursivo with argument 24
+Fatorial de 24 é -7835185981329244160
+
+real	0m0.010s
+user	0m0.002s
+sys	0m0.007s
+Running perf for fatorial_recursivo with argument 24
+Fatorial de 24 é -7835185981329244160
+
+ Performance counter stats for './fatorial_recursivo 24':
+
+              0.45 msec task-clock                #    0.475 CPUs utilized          
+                 1      context-switches          #    2.243 K/sec                  
+                 0      cpu-migrations            #    0.000 /sec                   
+                53      page-faults               #  118.861 K/sec                  
+           1299008      cycles                    #    2.913 GHz                    
+            950974      stalled-cycles-frontend   #   73.21% frontend cycles idle   
+            661596      instructions              #    0.51  insn per cycle         
+                                                  #    1.44  stalled cycles per insn
+            140910      branches                  #  316.013 M/sec                  
+              7789      branch-misses             #    5.53% of all branches        
+            179439      L1-dcache-loads           #  402.420 M/sec                  
+             16299      L1-dcache-load-misses     #    9.08% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000938456 seconds time elapsed
+
+       0.000873000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_recursivo with argument 25
+Fatorial de 25 é 7034535277573963776
+
+real	0m0.002s
+user	0m0.002s
+sys	0m0.000s
+Running perf for fatorial_recursivo with argument 25
+Fatorial de 25 é 7034535277573963776
+
+ Performance counter stats for './fatorial_recursivo 25':
+
+              0.51 msec task-clock                #    0.603 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                52      page-faults               #  102.181 K/sec                  
+           1305929      cycles                    #    2.566 GHz                    
+            958162      stalled-cycles-frontend   #   73.37% frontend cycles idle   
+            660600      instructions              #    0.51  insn per cycle         
+                                                  #    1.45  stalled cycles per insn
+            140770      branches                  #  276.616 M/sec                  
+              7560      branch-misses             #    5.37% of all branches        
+            179338      L1-dcache-loads           #  352.403 M/sec                  
+             16631      L1-dcache-load-misses     #    9.27% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000844350 seconds time elapsed
+
+       0.000981000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_iterativo with argument 20
+Fatorial de 20 é 2432902008176640000
+
+real	0m0.041s
+user	0m0.001s
+sys	0m0.011s
+Running perf for fatorial_iterativo with argument 20
+Fatorial de 20 é 2432902008176640000
+
+ Performance counter stats for './fatorial_iterativo 20':
+
+              0.50 msec task-clock                #    0.589 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                53      page-faults               #  106.191 K/sec                  
+           1321752      cycles                    #    2.648 GHz                    
+            972657      stalled-cycles-frontend   #   73.59% frontend cycles idle   
+            668337      instructions              #    0.51  insn per cycle         
+                                                  #    1.46  stalled cycles per insn
+            142480      branches                  #  285.474 M/sec                  
+              7552      branch-misses             #    5.30% of all branches        
+            181180      L1-dcache-loads           #  363.013 M/sec                  
+             16480      L1-dcache-load-misses     #    9.10% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000847150 seconds time elapsed
+
+       0.000129000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_iterativo with argument 21
+Fatorial de 21 é -4249290049419214848
+
+real	0m0.001s
+user	0m0.001s
+sys	0m0.000s
+Running perf for fatorial_iterativo with argument 21
+Fatorial de 21 é -4249290049419214848
+
+ Performance counter stats for './fatorial_iterativo 21':
+
+              0.47 msec task-clock                #    0.452 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                53      page-faults               #  112.958 K/sec                  
+           1334359      cycles                    #    2.844 GHz                    
+            983553      stalled-cycles-frontend   #   73.71% frontend cycles idle   
+            665152      instructions              #    0.50  insn per cycle         
+                                                  #    1.48  stalled cycles per insn
+            141184      branches                  #  300.904 M/sec                  
+              7742      branch-misses             #    5.48% of all branches        
+            179839      L1-dcache-loads           #  383.289 M/sec                  
+             16342      L1-dcache-load-misses     #    9.09% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.001038562 seconds time elapsed
+
+       0.000947000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_iterativo with argument 22
+Fatorial de 22 é -1250660718674968576
+
+real	0m0.001s
+user	0m0.001s
+sys	0m0.000s
+Running perf for fatorial_iterativo with argument 22
+Fatorial de 22 é -1250660718674968576
+
+ Performance counter stats for './fatorial_iterativo 22':
+
+              0.44 msec task-clock                #    0.541 CPUs utilized          
+                 1      context-switches          #    2.271 K/sec                  
+                 0      cpu-migrations            #    0.000 /sec                   
+                53      page-faults               #  120.345 K/sec                  
+           1289571      cycles                    #    2.928 GHz                    
+            940788      stalled-cycles-frontend   #   72.95% frontend cycles idle   
+            666585      instructions              #    0.52  insn per cycle         
+                                                  #    1.41  stalled cycles per insn
+            142014      branches                  #  322.466 M/sec                  
+              7740      branch-misses             #    5.45% of all branches        
+            180673      L1-dcache-loads           #  410.248 M/sec                  
+             16039      L1-dcache-load-misses     #    8.88% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000813348 seconds time elapsed
+
+       0.000844000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_iterativo with argument 23
+Fatorial de 23 é 8128291617894825984
+
+real	0m0.024s
+user	0m0.016s
+sys	0m0.010s
+Running perf for fatorial_iterativo with argument 23
+Fatorial de 23 é 8128291617894825984
+
+ Performance counter stats for './fatorial_iterativo 23':
+
+              0.46 msec task-clock                #    0.598 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                54      page-faults               #  116.883 K/sec                  
+           1302187      cycles                    #    2.819 GHz                    
+            946513      stalled-cycles-frontend   #   72.69% frontend cycles idle   
+            681228      instructions              #    0.52  insn per cycle         
+                                                  #    1.39  stalled cycles per insn
+            144647      branches                  #  313.089 M/sec                  
+              7811      branch-misses             #    5.40% of all branches        
+            184354      L1-dcache-loads           #  399.035 M/sec                  
+             16555      L1-dcache-load-misses     #    8.98% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000772846 seconds time elapsed
+
+       0.000755000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_iterativo with argument 24
+Fatorial de 24 é -7835185981329244160
+
+real	0m0.006s
+user	0m0.006s
+sys	0m0.000s
+Running perf for fatorial_iterativo with argument 24
+Fatorial de 24 é -7835185981329244160
+
+ Performance counter stats for './fatorial_iterativo 24':
+
+              0.45 msec task-clock                #    0.564 CPUs utilized          
+                 1      context-switches          #    2.238 K/sec                  
+                 0      cpu-migrations            #    0.000 /sec                   
+                55      page-faults               #  123.070 K/sec                  
+           1295879      cycles                    #    2.900 GHz                    
+            939125      stalled-cycles-frontend   #   72.47% frontend cycles idle   
+            682999      instructions              #    0.53  insn per cycle         
+                                                  #    1.38  stalled cycles per insn
+            145119      branches                  #  324.724 M/sec                  
+              7780      branch-misses             #    5.36% of all branches        
+            184981      L1-dcache-loads           #  413.920 M/sec                  
+             16600      L1-dcache-load-misses     #    8.97% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000792247 seconds time elapsed
+
+       0.000860000 seconds user
+       0.000000000 seconds sys
+
+
+Running time for fatorial_iterativo with argument 25
+Fatorial de 25 é 7034535277573963776
+
+real	0m0.001s
+user	0m0.001s
+sys	0m0.000s
+Running perf for fatorial_iterativo with argument 25
+Fatorial de 25 é 7034535277573963776
+
+ Performance counter stats for './fatorial_iterativo 25':
+
+              0.49 msec task-clock                #    0.526 CPUs utilized          
+                 1      context-switches          #    2.058 K/sec                  
+                 0      cpu-migrations            #    0.000 /sec                   
+                54      page-faults               #  111.157 K/sec                  
+           1304529      cycles                    #    2.685 GHz                    
+            950356      stalled-cycles-frontend   #   72.85% frontend cycles idle   
+            677316      instructions              #    0.52  insn per cycle         
+                                                  #    1.40  stalled cycles per insn
+            144430      branches                  #  297.303 M/sec                  
+              7786      branch-misses             #    5.39% of all branches        
+            183788      L1-dcache-loads           #  378.320 M/sec                  
+             17209      L1-dcache-load-misses     #    9.36% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.000923755 seconds time elapsed
+
+       0.000895000 seconds user
+       0.000000000 seconds sys
+
+
+Running perf for divisao_inteiros with argument 0
+
+ Performance counter stats for './divisao_inteiros 0':
+
+              3.73 msec task-clock                #    0.881 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                44      page-faults               #   11.801 K/sec                  
+          12129091      cycles                    #    3.253 GHz                    
+           4871859      stalled-cycles-frontend   #   40.17% frontend cycles idle   
+          26494750      instructions              #    2.18  insn per cycle         
+                                                  #    0.18  stalled cycles per insn
+           1101851      branches                  #  295.513 M/sec                  
+              5073      branch-misses             #    0.46% of all branches        
+           6139792      L1-dcache-loads           #    1.647 G/sec                  
+             13517      L1-dcache-load-misses     #    0.22% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.004234552 seconds time elapsed
+
+       0.000000000 seconds user
+       0.004150000 seconds sys
+
+
+Running perf for divisao_float with argument 0
+
+ Performance counter stats for './divisao_float 0':
+
+             50.22 msec task-clock                #    0.920 CPUs utilized          
+                 8      context-switches          #  159.291 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                43      page-faults               #  856.188 /sec                   
+          70173722      cycles                    #    1.397 GHz                    
+          61803950      stalled-cycles-frontend   #   88.07% frontend cycles idle   
+          21583088      instructions              #    0.31  insn per cycle         
+                                                  #    2.86  stalled cycles per insn
+           1120386      branches                  #   22.308 M/sec                  
+              9015      branch-misses             #    0.80% of all branches        
+           9172650      L1-dcache-loads           #  182.640 M/sec                  
+             20762      L1-dcache-load-misses     #    0.23% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.054619152 seconds time elapsed
+
+       0.038042000 seconds user
+       0.012680000 seconds sys
+
+
+Running perf for operacoes_arquivo with argument 0
+
+ Performance counter stats for './operacoes_arquivo 0':
+
+            375.12 msec task-clock                #    0.912 CPUs utilized          
+                35      context-switches          #   93.302 /sec                   
+                 1      cpu-migrations            #    2.666 /sec                   
+                51      page-faults               #  135.955 /sec                   
+         565309037      cycles                    #    1.507 GHz                    
+         160782747      stalled-cycles-frontend   #   28.44% frontend cycles idle   
+        1211372722      instructions              #    2.14  insn per cycle         
+                                                  #    0.13  stalled cycles per insn
+         218990738      branches                  #  583.781 M/sec                  
+           2525139      branch-misses             #    1.15% of all branches        
+         264656816      L1-dcache-loads           #  705.517 M/sec                  
+           2504356      L1-dcache-load-misses     #    0.95% of all L1-dcache accesses
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0.411374390 seconds time elapsed
+
+       0.244208000 seconds user
+       0.131497000 seconds sys
+
+
