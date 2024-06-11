@@ -5,6 +5,7 @@ Docker was used to run ubuntu. Docker Desktop should be up and running
 ### Docker commands
 
 docker build -t desempenho-app .
+
 docker run --privileged -it desempenho-app > DockerRun.txt
 
 ### Outputs
