@@ -63,7 +63,5 @@ RUN gcc -o fatorial_recursivo fatrec.c \
 RUN chmod +x /usr/src/myapp/run_tests.sh
 RUN chmod +x /usr/src/myapp/plot.py
 
-RUN perf stat -B dd if=/dev/zero of=/dev/null count=1000000
-
 # Run the tests and plot the results when the container starts
 CMD ["./run_tests.sh"]
