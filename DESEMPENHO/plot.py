@@ -1,15 +1,14 @@
+# Extraido do plot.ipynb para execução no container
+
 import json
 import matplotlib.pyplot as plt
 
-# Load the updated JSON data
 with open('DockerRun.json') as f:
     data = json.load(f)
 
-# Extract data
 executions = data['executions']
 metrics = ['task_clock', 'cycles', 'stalled_cycles_frontend', 'instructions', 'branches', 'branch_misses', 'l1_dcache_loads', 'l1_dcache_load_misses']
 
-# Organize data by metric
 metrics_data = {metric: [] for metric in metrics}
 names = []
 real_times = []
@@ -29,7 +28,6 @@ for execution in executions:
         value = float(value_str.split()[0].replace(',', ''))
         metrics_data[metric].append(value)
 
-# Translate metric names
 metric_translations = {
     'task_clock': 'Tempo de Tarefa',
     'cycles': 'Ciclos',
@@ -41,7 +39,6 @@ metric_translations = {
     'l1_dcache_load_misses': 'Falhas de Carregamento L1 DCache'
 }
 
-# Separate factorial executions and others
 factorial_indices = [i for i, name in enumerate(names) if 'fatorial' in name]
 other_indices = [i for i, name in enumerate(names) if 'fatorial' not in name]
 
@@ -55,7 +52,6 @@ other_real_times = [real_times[i] for i in other_indices]
 other_user_times = [user_times[i] for i in other_indices]
 other_sys_times = [sys_times[i] for i in other_indices]
 
-# Plot execution times for factorial functions
 plt.figure(figsize=(10, 5))
 plt.barh(factorial_names, factorial_real_times, color='lightcoral', label='Tempo Real')
 plt.barh(factorial_names, factorial_user_times, color='skyblue', label='Tempo de Usuário', left=factorial_real_times)
@@ -67,7 +63,6 @@ plt.tight_layout()
 plt.savefig('resultados/tempo_execucao_fatorial.png')
 plt.close()
 
-# Plot execution times for other functions
 plt.figure(figsize=(10, 5))
 plt.barh(other_names, other_real_times, color='lightcoral', label='Tempo Real')
 plt.barh(other_names, other_user_times, color='skyblue', label='Tempo de Usuário', left=other_real_times)
@@ -79,7 +74,6 @@ plt.tight_layout()
 plt.savefig('resultados/tempo_execucao_outras.png')
 plt.close()
 
-# Plot each metric
 for metric, values in metrics_data.items():
     plt.figure(figsize=(10, 5))
     plt.barh(names, values, color='skyblue')
