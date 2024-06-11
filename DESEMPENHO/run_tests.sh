@@ -1,37 +1,29 @@
 #!/bin/bash
 
-# Function to run time command and save output
-run_time() {
-    echo "Running time for $1 with argument $2"
-    time ./$1 $2 2>&1 | tee time_${1}_${2}.txt
-}
-
-# Function to run perf command and save output
-run_perf() {
-    echo "Running perf for $1 with argument $2"
-    perf stat -d ./$1 $2 2>&1 | tee perf_${1}_${2}.txt
-}
-
-# Run tests for fatorial_recursivo
+# Teste com time para os programas de fatorial
 for i in {20..25}; do
-    run_time "fatorial_recursivo" $i
-    run_perf "fatorial_recursivo" $i
+    echo "Executando fatorial_recursivo com entrada $i"
+    time ./fatorial_recursivo $i
+    echo "Executando fatorial_iterativo com entrada $i"
+    time ./fatorial_iterativo $i
 done
 
-# Run tests for fatorial_iterativo
+# Teste com perf para os programas de fatorial
 for i in {20..25}; do
-    run_time "fatorial_iterativo" $i
-    run_perf "fatorial_iterativo" $i
+    echo "Executando perf com fatorial_recursivo e entrada $i"
+    perf stat -d ./fatorial_recursivo $i
+    echo "Executando perf com fatorial_iterativo e entrada $i"
+    perf stat -d ./fatorial_iterativo $i
 done
 
-# Run tests for divisao_inteiros
-run_perf "divisao_inteiros" 0
+# Teste com perf para divisões de inteiros
+echo "Executando perf com divisao_inteiros"
+perf stat -d ./divisao_inteiros
 
-# Run tests for divisao_float
-run_perf "divisao_float" 0
+# Teste com perf para divisões de floats
+echo "Executando perf com divisao_float"
+perf stat -d ./divisao_float
 
-# Run tests for operacoes_arquivo
-run_perf "operacoes_arquivo" 0
-
-# Keep the container running to inspect the results
-# tail -f /dev/null
+# Teste com perf para operações em arquivo
+echo "Executando perf com operacoes_arquivo"
+perf stat -d ./operacoes_arquivo

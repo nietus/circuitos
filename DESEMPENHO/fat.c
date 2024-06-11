@@ -1,20 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long long int fatorial_iterativo(int n) {
-    long long int resultado = 1;
-    for (int i = 1; i <= n; i++) {
-        resultado *= i;
+unsigned long long int factorial(unsigned long long int n) {
+    unsigned long long int result = 1;
+    for (unsigned long long int i = 1; i <= n; ++i) {
+        result *= i;
     }
-    return resultado;
+    return result;
 }
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-        printf("Uso: %s <numero>\n", argv[0]);
+        printf("Usage: %s <number>\n", argv[0]);
         return 1;
     }
-    int n = atoi(argv[1]);
-    printf("Fatorial de %d é %lld\n", n, fatorial_iterativo(n));
+
+    unsigned long long int num = atoll(argv[1]);
+    unsigned long long int result = factorial(num);
+    printf("Fatorial de %llu é %llu\n", num, result);
+
     return 0;
 }

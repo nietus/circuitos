@@ -1,0 +1,313 @@
+{
+    "executions": [
+        {
+            "name": "fatorial_recursivo",
+            "input": 20,
+            "output": "2432902008176640000",
+            "real_time": "0.000823220 seconds",
+            "user_time": "0.000969000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.470000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "51 page-faults",
+                "cycles": "1351474 cycles",
+                "stalled_cycles_frontend": "1003180 stalled-cycles-frontend",
+                "instructions": "661444 instructions",
+                "branches": "140744 branches",
+                "branch_misses": "7641 branch-misses",
+                "l1_dcache_loads": "178676 L1-dcache-loads",
+                "l1_dcache_load_misses": "16550 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_iterativo",
+            "input": 20,
+            "output": "2432902008176640000",
+            "real_time": "0.000778219 seconds",
+            "user_time": "0.000818000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.480000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "54 page-faults",
+                "cycles": "1323409 cycles",
+                "stalled_cycles_frontend": "971943 stalled-cycles-frontend",
+                "instructions": "681897 instructions",
+                "branches": "145503 branches",
+                "branch_misses": "7378 branch-misses",
+                "l1_dcache_loads": "184044 L1-dcache-loads",
+                "l1_dcache_load_misses": "16313 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_recursivo",
+            "input": 21,
+            "output": "14197454024290336768",
+            "real_time": "0.000766119 seconds",
+            "user_time": "0.000849000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.500000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "54 page-faults",
+                "cycles": "1327070 cycles",
+                "stalled_cycles_frontend": "970866 stalled-cycles-frontend",
+                "instructions": "681086 instructions",
+                "branches": "145374 branches",
+                "branch_misses": "7573 branch-misses",
+                "l1_dcache_loads": "184481 L1-dcache-loads",
+                "l1_dcache_load_misses": "17353 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_iterativo",
+            "input": 21,
+            "output": "14197454024290336768",
+            "real_time": "0.001219831 seconds",
+            "user_time": "0.000902000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.500000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "54 page-faults",
+                "cycles": "1367372 cycles",
+                "stalled_cycles_frontend": "1006961 stalled-cycles-frontend",
+                "instructions": "688894 instructions",
+                "branches": "146453 branches",
+                "branch_misses": "7983 branch-misses",
+                "l1_dcache_loads": "186428 L1-dcache-loads",
+                "l1_dcache_load_misses": "18173 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_recursivo",
+            "input": 22,
+            "output": "17196083355034583040",
+            "real_time": "0.001034526 seconds",
+            "user_time": "0.000849000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.520000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "51 page-faults",
+                "cycles": "1297107 cycles",
+                "stalled_cycles_frontend": "950596 stalled-cycles-frontend",
+                "instructions": "660515 instructions",
+                "branches": "140547 branches",
+                "branch_misses": "7813 branch-misses",
+                "l1_dcache_loads": "178733 L1-dcache-loads",
+                "l1_dcache_load_misses": "17301 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_iterativo",
+            "input": 22,
+            "output": "17196083355034583040",
+            "real_time": "0.000803921 seconds",
+            "user_time": "0.000885000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.530000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "53 page-faults",
+                "cycles": "1352105 cycles",
+                "stalled_cycles_frontend": "997341 stalled-cycles-frontend",
+                "instructions": "680316 instructions",
+                "branches": "144704 branches",
+                "branch_misses": "7552 branch-misses",
+                "l1_dcache_loads": "184283 L1-dcache-loads",
+                "l1_dcache_load_misses": "17577 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_recursivo",
+            "input": 23,
+            "output": "8128291617894825984",
+            "real_time": "0.000769519 seconds",
+            "user_time": "0.000084000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.470000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "52 page-faults",
+                "cycles": "1257111 cycles",
+                "stalled_cycles_frontend": "913434 stalled-cycles-frontend",
+                "instructions": "654573 instructions",
+                "branches": "139721 branches",
+                "branch_misses": "7619 branch-misses",
+                "l1_dcache_loads": "177491 L1-dcache-loads",
+                "l1_dcache_load_misses": "16264 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_iterativo",
+            "input": 23,
+            "output": "8128291617894825984",
+            "real_time": "0.000720619 seconds",
+            "user_time": "0.000809000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.440000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "52 page-faults",
+                "cycles": "1247909 cycles",
+                "stalled_cycles_frontend": "904128 stalled-cycles-frontend",
+                "instructions": "664393 instructions",
+                "branches": "140955 branches",
+                "branch_misses": "7266 branch-misses",
+                "l1_dcache_loads": "179290 L1-dcache-loads",
+                "l1_dcache_load_misses": "16279 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_recursivo",
+            "input": 24,
+            "output": "10611558092380307456",
+            "real_time": "0.004823122 seconds",
+            "user_time": "0.004398000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "1.560000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "54 page-faults",
+                "cycles": "1647548 cycles",
+                "stalled_cycles_frontend": "1280595 stalled-cycles-frontend",
+                "instructions": "669238 instructions",
+                "branches": "142823 branches",
+                "branch_misses": "9015 branch-misses",
+                "l1_dcache_loads": "182262 L1-dcache-loads",
+                "l1_dcache_load_misses": "20120 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_iterativo",
+            "input": 24,
+            "output": "10611558092380307456",
+            "real_time": "0.000820321 seconds",
+            "user_time": "0.000913000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.500000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "52 page-faults",
+                "cycles": "1354049 cycles",
+                "stalled_cycles_frontend": "1004307 stalled-cycles-frontend",
+                "instructions": "658372 instructions",
+                "branches": "140640 branches",
+                "branch_misses": "8057 branch-misses",
+                "l1_dcache_loads": "178209 L1-dcache-loads",
+                "l1_dcache_load_misses": "17127 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_recursivo",
+            "input": 25,
+            "output": "7034535277573963776",
+            "real_time": "0.002655267 seconds",
+            "user_time": "0.002215000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "1.580000 msec task-clock",
+                "context_switches": "2 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "52 page-faults",
+                "cycles": "1594248 cycles",
+                "stalled_cycles_frontend": "1223718 stalled-cycles-frontend",
+                "instructions": "683238 instructions",
+                "branches": "145491 branches",
+                "branch_misses": "8752 branch-misses",
+                "l1_dcache_loads": "185848 L1-dcache-loads",
+                "l1_dcache_load_misses": "20399 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "fatorial_iterativo",
+            "input": 25,
+            "output": "7034535277573963776",
+            "real_time": "0.000775619 seconds",
+            "user_time": "0.000850000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "0.490000 msec task-clock",
+                "context_switches": "0 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "53 page-faults",
+                "cycles": "1324764 cycles",
+                "stalled_cycles_frontend": "971000 stalled-cycles-frontend",
+                "instructions": "668129 instructions",
+                "branches": "142581 branches",
+                "branch_misses": "7870 branch-misses",
+                "l1_dcache_loads": "181056 L1-dcache-loads",
+                "l1_dcache_load_misses": "16941 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "divisao_inteiros",
+            "real_time": "0.004336109 seconds",
+            "user_time": "0.004398000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "3.960000 msec task-clock",
+                "context_switches": "2 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "44 page-faults",
+                "cycles": "12239007 cycles",
+                "stalled_cycles_frontend": "4938313 stalled-cycles-frontend",
+                "instructions": "26573606 instructions",
+                "branches": "1118174 branches",
+                "branch_misses": "6118 branch-misses",
+                "l1_dcache_loads": "6162340 L1-dcache-loads",
+                "l1_dcache_load_misses": "16411 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "divisao_float",
+            "real_time": "0.024304113 seconds",
+            "user_time": "0.023765000 seconds",
+            "sys_time": "0.000000000 seconds",
+            "perf_output": {
+                "task_clock": "23.860000 msec task-clock",
+                "context_switches": "3 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "43 page-faults",
+                "cycles": "69670521 cycles",
+                "stalled_cycles_frontend": "61332303 stalled-cycles-frontend",
+                "instructions": "21549878 instructions",
+                "branches": "1112565 branches",
+                "branch_misses": "6985 branch-misses",
+                "l1_dcache_loads": "9162742 L1-dcache-loads",
+                "l1_dcache_load_misses": "19201 L1-dcache-load-misses"
+            }
+        },
+        {
+            "name": "operacoes_arquivo",
+            "real_time": "0.206915917 seconds",
+            "user_time": "0.185608000 seconds",
+            "sys_time": "0.019537000 seconds",
+            "perf_output": {
+                "task_clock": "206.440000 msec task-clock",
+                "context_switches": "3 context-switches",
+                "cpu_migrations": "0 cpu-migrations",
+                "page_faults": "51 page-faults",
+                "cycles": "561636880 cycles",
+                "stalled_cycles_frontend": "160875362 stalled-cycles-frontend",
+                "instructions": "1212761847 instructions",
+                "branches": "219196687 branches",
+                "branch_misses": "2487658 branch-misses",
+                "l1_dcache_loads": "265135853 L1-dcache-loads",
+                "l1_dcache_load_misses": "2780686 L1-dcache-load-misses"
+            }
+        }
+    ]
+}
