@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.7)  11 JUN 2024 23:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.7)  11 JUN 2024 22:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -351,162 +351,130 @@ Package hyperref Info: Link coloring OFF on input line 17.
 [2]
 
 [3]
-<./resultados/time_fatorial.png, id=95, 722.7pt x 361.35pt>
-File: ./resultados/time_fatorial.png Graphic file (type png)
-<use ./resultados/time_fatorial.png>
-Package pdftex.def Info: ./resultados/time_fatorial.png  used on input line 160.
-(pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
-
 
 [4]
+Overfull \hbox (473.28256pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 metrics = ['task_clock', 'cycles', 'stalled_cycles_frontend', 'instructions', 'branches', 'branch_misses', 'l1_dcache_loads', 'l1_dcache_load_misses'][] 
+ []
 
-[5 <./resultados/time_fatorial.png>]
+
+Overfull \hbox (22.50734pt too wide) in paragraph at lines 240--240
+[]    \OT1/cmtt/m/n/12 names.append(f"{execution['name']} {execution.get('input', '')}".strip())[] 
+ []
+
+
+Overfull \hbox (22.50734pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 factorial_indices = [i for i, name in enumerate(names) if 'fatorial' in name][] 
+ []
+
+
+Overfull \hbox (22.50734pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 other_indices = [i for i, name in enumerate(names) if 'fatorial' not in name][] 
+ []
+
+
+
+[5]
+Overfull \hbox (84.25737pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 plt.barh(factorial_names, factorial_real_times, color='lightcoral', label='Tempo Real')[] 
+ []
+
+
+Overfull \hbox (269.50746pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 plt.barh(factorial_names, factorial_user_times, color='skyblue', label='Tempo de Usu^^Sario', left=factorial_real_times)[] 
+ []
+
+
+Overfull \hbox (572.08261pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 plt.barh(factorial_names, factorial_sys_times, color='lightgreen', label='Tempo de Sistema', left=[r + u for r, u in zip(factorial_real_times, factorial_user_times)])[] 
+ []
+
+
+Overfull \hbox (34.85735pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 plt.barh(other_names, other_real_times, color='lightcoral', label='Tempo Real')[] 
+ []
+
+
+Overfull \hbox (195.40742pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 plt.barh(other_names, other_user_times, color='skyblue', label='Tempo de Usu^^Sario', left=other_real_times)[] 
+ []
+
+
+Overfull \hbox (473.28256pt too wide) in paragraph at lines 240--240
+[]\OT1/cmtt/m/n/12 plt.barh(other_names, other_sys_times, color='lightgreen', label='Tempo de Sistema', left=[r + u for r, u in zip(other_real_times, other_user_times)])[] 
+ []
+
+
+Overfull \hbox (22.50734pt too wide) in paragraph at lines 240--240
+[]    \OT1/cmtt/m/n/12 plt.title(f'Compara^^Xc~ao de {metric_translations[metric]} entre Execu^^Xc~oes')[] 
+ []
+
+
 
 [6]
-Overfull \hbox (331.25749pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 metrics = ['task_clock', 'cycles', 'instructions', 'branches', 'branch_misses', 'l1_dcache_loads', 'l1_dcache_load_misses'][] 
- []
-
-
-Overfull \hbox (47.20735pt too wide) in paragraph at lines 361--361
-[]        \OT1/cmtt/m/n/12 names.append(f"{execution['name']} {execution.get('input', '')}".strip())[] 
- []
-
-
-Overfull \hbox (152.1824pt too wide) in paragraph at lines 361--361
-[]        \OT1/cmtt/m/n/12 instructions = float(execution['perf_output']['instructions'].split()[0].replace(',', ''))[] 
- []
-
-
-Overfull \hbox (78.08237pt too wide) in paragraph at lines 361--361
-[]        \OT1/cmtt/m/n/12 cycles = float(execution['perf_output']['cycles'].split()[0].replace(',', ''))[] 
- []
-
-
-Overfull \hbox (3.98233pt too wide) in paragraph at lines 361--361
-[]        \OT1/cmtt/m/n/12 # Assumindo frequ^encia do clock em Hz (ex: 2.5GHz = 2.5 * 10^9 Hz)[] 
- []
-
-
-
-[7]
-Overfull \hbox (312.73248pt too wide) in paragraph at lines 361--361
-[]        \OT1/cmtt/m/n/12 percent_cpu_time, mips, mflops, cpu_time, performance = calculate_metrics(execution, real_time, user_time, sys_time)[] 
- []
-
-
-Overfull \hbox (53.38235pt too wide) in paragraph at lines 361--361
-[]        \OT1/cmtt/m/n/12 print(f"Percentual do tempo total gasto pela CPU: {percent_cpu_time:.2f}")[] 
- []
-
-
-Overfull \hbox (47.20735pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 factorial_indices = [i for i, name in enumerate(names) if 'fatorial' in name][] 
- []
-
-
-Overfull \hbox (47.20735pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 other_indices = [i for i, name in enumerate(names) if 'fatorial' not in name][] 
- []
-
-
-Overfull \hbox (108.95738pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 plt.barh(factorial_names, factorial_real_times, color='lightcoral', label='Tempo Real')[] 
- []
-
-
-Overfull \hbox (355.9575pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 plt.barh(factorial_names, factorial_user_times, color='skyblue', label='Tempo de Usu^^Sario', left=np.array(factorial_real_times))[] 
- []
-
-
-Overfull \hbox (572.08261pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 plt.barh(factorial_names, factorial_sys_times, color='lightgreen', label='Tempo de Sistema', left=np.array(factorial_real_times) + np.array(factorial_user_times))[] 
- []
-
-
-
-[8]
-Overfull \hbox (59.55736pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 plt.barh(other_names, other_real_times, color='lightcoral', label='Tempo Real')[] 
- []
-
-
-Overfull \hbox (281.85747pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 plt.barh(other_names, other_user_times, color='skyblue', label='Tempo de Usu^^Sario', left=np.array(other_real_times))[] 
- []
-
-
-Overfull \hbox (473.28256pt too wide) in paragraph at lines 361--361
-[]    \OT1/cmtt/m/n/12 plt.barh(other_names, other_sys_times, color='lightgreen', label='Tempo de Sistema', left=np.array(other_real_times) + np.array(other_user_times))[] 
- []
-
-
-Overfull \hbox (47.20735pt too wide) in paragraph at lines 361--361
-[]        \OT1/cmtt/m/n/12 plt.title(f'Compara^^Xc~ao de {metric_translations[metric]} entre Execu^^Xc~oes')[] 
- []
-
-
-
-[9]
-<resultados/tempo_execucao_fatorial.png, id=125, 722.7pt x 361.35pt>
+<resultados/tempo_execucao_fatorial.png, id=108, 722.7pt x 361.35pt>
 File: resultados/tempo_execucao_fatorial.png Graphic file (type png)
 <use resultados/tempo_execucao_fatorial.png>
-Package pdftex.def Info: resultados/tempo_execucao_fatorial.png  used on input line 370.
+Package pdftex.def Info: resultados/tempo_execucao_fatorial.png  used on input line 249.
 (pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
-<resultados/tempo_execucao_outras.png, id=126, 722.7pt x 361.35pt>
+<resultados/tempo_execucao_outras.png, id=110, 722.7pt x 361.35pt>
 File: resultados/tempo_execucao_outras.png Graphic file (type png)
 <use resultados/tempo_execucao_outras.png>
-Package pdftex.def Info: resultados/tempo_execucao_outras.png  used on input line 377.
+Package pdftex.def Info: resultados/tempo_execucao_outras.png  used on input line 256.
 (pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
-<resultados/cycles.png, id=127, 722.7pt x 361.35pt>
+<resultados/cycles.png, id=111, 722.7pt x 361.35pt>
 File: resultados/cycles.png Graphic file (type png)
 <use resultados/cycles.png>
-Package pdftex.def Info: resultados/cycles.png  used on input line 384.
+Package pdftex.def Info: resultados/cycles.png  used on input line 263.
 (pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
 
 
-[10 <./resultados/tempo_execucao_fatorial.png> <./resultados/tempo_execucao_outras.png>]
-<resultados/instructions.png, id=136, 722.7pt x 361.35pt>
+[7 <./resultados/tempo_execucao_fatorial.png> <./resultados/tempo_execucao_outras.png>]
+<resultados/instructions.png, id=121, 722.7pt x 361.35pt>
 File: resultados/instructions.png Graphic file (type png)
 <use resultados/instructions.png>
-Package pdftex.def Info: resultados/instructions.png  used on input line 391.
+Package pdftex.def Info: resultados/instructions.png  used on input line 270.
 (pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
 
 
-[11 <./resultados/cycles.png> <./resultados/instructions.png>]
+[8 <./resultados/cycles.png> <./resultados/instructions.png>]
 
-[12{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[9{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-[13]
+[10]
 
-[14]
+[11]
 
-[15]
+[12]
 
-[16]
-
-[17] (./desempenho.aux)
+[13] (./desempenho.aux)
  ***********
 LaTeX2e <2024-06-01>
 L3 programming layer <2024-05-27>
  ***********
-Package rerunfilecheck Info: File `desempenho.out' has not changed.
-(rerunfilecheck)             Checksum: 32F2B56162D834DC4A57C6215CAAD7C8;2301.
+
+
+Package rerunfilecheck Warning: File `desempenho.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `desempenho.out':
+(rerunfilecheck)             Before: CA3A807A039235148F5A82268FD75A71;2315
+(rerunfilecheck)             After:  32F2B56162D834DC4A57C6215CAAD7C8;2301.
  ) 
 Here is how much of TeX's memory you used:
- 10854 strings out of 473600
- 169588 string characters out of 5732738
- 1939894 words of memory out of 5000000
- 33570 multiletter control sequences out of 15000+600000
+ 10840 strings out of 473600
+ 169266 string characters out of 5732738
+ 1938894 words of memory out of 5000000
+ 33561 multiletter control sequences out of 15000+600000
  566169 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,868b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,705b,610s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on desempenho.pdf (17 pages, 375809 bytes).
+Output written on desempenho.pdf (13 pages, 278101 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 187 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 220 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

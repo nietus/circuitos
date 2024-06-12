@@ -10,7 +10,7 @@
 \geometry{a4paper, margin=1in}
 
 % Informações do trabalho
-\title{Análise de Desempenho de Algoritmos}
+\title{Análise de Desempenho}
 \author{Antonio Neto}
 \date{2024}
 
@@ -19,7 +19,7 @@
 \maketitle
 
 \begin{abstract}
-Este relatório tem como objetivo explorar os conceitos de análise de desempenho de algoritmos, utilizando ferramentas como \textit{time} e \textit{perf} em um ambiente Linux, especificamente na distribuição Ubuntu 20.04 do Docker (comandos para execução no README.md). O estudo foca na implementação de algoritmos para cálculo do fatorial de um número, utilizando métodos recursivo e iterativo, bem como na comparação de desempenho entre eles. Adicionalmente, foram analisados algoritmos de divisão e operações de escrita em arquivo. O DockerRun.txt tem os dados brutos da execução do container.
+Este relatório tem como objetivo explorar os conceitos de análise de desempenho de algoritmos, utilizando ferramentas como \textit{time} e \textit{perf} em um ambiente Linux, especificamente na distribuição Ubuntu 20.04 do Docker (comandos para execução no README.md). O estudo foca na implementação de algoritmos para cálculo do fatorial de um número, utilizando métodos recursivo e iterativo, bem como na comparação de desempenho entre eles. Adicionalmente, foram analisados algoritmos de divisão e operações de escrita em arquivo. \textbf{O DockerRun.txt tem os dados brutos da execução do container}.
 \end{abstract}
 
 \tableofcontents
@@ -27,7 +27,7 @@ Este relatório tem como objetivo explorar os conceitos de análise de desempenh
 \newpage
 
 \section{Desenvolvimento}
-Os experimentos foram realizados em um ambiente virtualizado utilizando o Docker. Os códigos em C foram desenvolvidos para calcular o fatorial de um número de forma recursiva e iterativa, realizar operações de divisão de inteiros e floats, e operações de escrita em arquivo. Scripts em Python foram utilizados para automatizar a execução dos testes, coletar e analisar os dados, e gerar gráficos comparativos.
+Os experimentos foram realizados em um container Docker. Os códigos em C foram desenvolvidos para calcular o fatorial de 10,20,30,40,50,60,70,80,90 e 100 de forma recursiva e iterativa, realizar operações de divisão de inteiros e floats, e operações de escrita em arquivo. Scripts em Python foram utilizados para automatizar a execução dos testes, coletar e analisar os dados, e gerar gráficos comparativos. Vale mencionar que os scripts para calcular o fatorial não são convencionais, pois utilizam vetores para armazenar os dígitos do resultado, permitindo calcular fatoriais de números que usariam bem mais de 64 bits. Também é preciso considerar que os códigos estão sendo executados em ambiente virtualizado, e não refletem a realidade de modo absoluto!
 
 \subsection{Implementação dos Algoritmos}
 Os algoritmos foram implementados conforme descrito abaixo:
@@ -36,12 +36,38 @@ Os algoritmos foram implementados conforme descrito abaixo:
 \begin{verbatim}
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-unsigned long long int factorial(unsigned long long int n) {
-    if (n == 0)
-        return 1;
-    else
-        return n * factorial(n - 1);
+#define MAX_DIGITS 5000
+
+void multiply(int result[], int *result_size, int x) {
+    int carry = 0;
+    for (int i = 0; i < *result_size; ++i) {
+        int prod = result[i] * x + carry;
+        result[i] = prod % 10;
+        carry = prod / 10;
+    }
+
+    while (carry) {
+        result[(*result_size)++] = carry % 10;
+        carry /= 10;
+    }
+}
+
+void factorial_recursive(int result[], int *result_size, int n) {
+    if (n == 1) {
+        return;
+    }
+
+    factorial_recursive(result, result_size, n - 1);
+    multiply(result, result_size, n);
+}
+
+void print_result(int result[], int result_size) {
+    for (int i = result_size - 1; i >= 0; --i) {
+        printf("%d", result[i]);
+    }
+    printf("\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -50,25 +76,58 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    unsigned long long int num = atoll(argv[1]);
-    unsigned long long int result = factorial(num);
-    printf("Fatorial de %llu é %llu\n", num, result);
+    int num = atoi(argv[1]);
+    if (num < 0) {
+        printf("Please enter a non-negative integer.\n");
+        return 1;
+    }
+
+    int result[MAX_DIGITS];
+    memset(result, 0, sizeof(result));
+    result[0] = 1;
+    int result_size = 1;
+
+    factorial_recursive(result, &result_size, num);
+
+    print_result(result, result_size);
 
     return 0;
 }
 \end{verbatim}
-\newpage
+
 \subsubsection{Algoritmo Iterativo}
 \begin{verbatim}
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-unsigned long long int factorial(unsigned long long int n) {
-    unsigned long long int result = 1;
-    for (unsigned long long int i = 1; i <= n; ++i) {
-        result *= i;
+#define MAX_DIGITS 5000
+
+void multiply(int result[], int *result_size, int x) {
+    int carry = 0;
+    for (int i = 0; i < *result_size; ++i) {
+        int prod = result[i] * x + carry;
+        result[i] = prod % 10;
+        carry = prod / 10;
     }
-    return result;
+
+    while (carry) {
+        result[(*result_size)++] = carry % 10;
+        carry /= 10;
+    }
+}
+
+void factorial_iterative(int result[], int *result_size, int n) {
+    for (int x = 2; x <= n; ++x) {
+        multiply(result, result_size, x);
+    }
+}
+
+void print_result(int result[], int result_size) {
+    for (int i = result_size - 1; i >= 0; --i) {
+        printf("%d", result[i]);
+    }
+    printf("\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -77,13 +136,31 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    unsigned long long int num = atoll(argv[1]);
-    unsigned long long int result = factorial(num);
-    printf("Fatorial de %llu é %llu\n", num, result);
+    int num = atoi(argv[1]);
+    if (num < 0) {
+        printf("Please enter a non-negative integer.\n");
+        return 1;
+    }
+
+    int result[MAX_DIGITS];
+    memset(result, 0, sizeof(result));
+    result[0] = 1;
+    int result_size = 1;
+
+    factorial_iterative(result, &result_size, num);
+
+    print_result(result, result_size);
 
     return 0;
 }
 \end{verbatim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{./resultados/time_fatorial.png}
+    \caption{Tempo de Execução dos Algoritmos de Fatorial (time)}
+    \label{fig:time_fatorial}
+\end{figure}
 
 \subsubsection{Divisão de Inteiros}
 \begin{verbatim}
@@ -100,7 +177,7 @@ int main() {
     return 0;
 }
 \end{verbatim}
-\newpage
+
 \subsubsection{Divisão de Floats}
 \begin{verbatim}
 #include <stdio.h>
@@ -140,103 +217,147 @@ int main() {
 \end{verbatim}
 
 \subsection{Execução dos Testes}
-Os testes foram realizados para entradas variando de 20 a 25 no caso dos algoritmos de fatorial, e para um loop de 1 a 1 milhão nos casos das divisões e operações de escrita. As ferramentas \textit{time} e \textit{perf} foram utilizadas para medir o tempo de execução e coletar métricas de desempenho. O script \textit{run\_tests.sh} foi utilizado para automatizar a execução dos testes e salvar os resultados.
+Os testes foram realizados para entradas variando de 10 a 100 no caso dos algoritmos de fatorial, e para um loop de 1 a 1 milhão nos casos das divisões e operações de escrita. As ferramentas \textit{time} e \textit{perf} foram utilizadas para medir o tempo de execução e coletar métricas de desempenho. O script \textit{run\_tests.sh} foi utilizado para automatizar a execução dos testes e salvar os resultados.
 
 \subsection{Coleta e Análise dos Dados}
-Os resultados dos testes foram coletados em um arquivo JSON, que foi posteriormente analisado utilizando um script Python. Este script utilizou a biblioteca \textit{matplotlib} para gerar gráficos comparativos dos tempos de execução e outras métricas de desempenho.
-\newpage
+Os resultados dos testes foram organizados no arquivo \textbf{DockerRun.json}, que foi posteriormente analisado utilizando um script Python. Este script utilizou a biblioteca \textit{matplotlib} para gerar gráficos comparativos dos tempos de execução e outras métricas de desempenho.
+
 \subsubsection{Script Python}
 \begin{verbatim}
-import json
-import matplotlib.pyplot as plt
-
-# Load the updated JSON data
-with open('DockerRun.json') as f:
-    data = json.load(f)
-
-# Extract data
-executions = data['executions']
-metrics = ['task_clock', 'cycles', 'stalled_cycles_frontend', 'instructions', 'branches', 'branch_misses', 'l1_dcache_loads', 'l1_dcache_load_misses']
-
-# Organize data by metric
-metrics_data = {metric: [] for metric in metrics}
-names = []
-real_times = []
-user_times = []
-sys_times = []
-
-for execution in executions:
-    names.append(f"{execution['name']} {execution.get('input', '')}".strip())
-    real_time_str = execution['real_time']
-    user_time_str = execution['user_time']
-    sys_time_str = execution['sys_time']
-    real_times.append(float(real_time_str.split()[0]))
-    user_times.append(float(user_time_str.split()[0]))
-    sys_times.append(float(sys_time_str.split()[0]))
-    for metric in metrics:
-        value_str = execution['perf_output'][metric]
-        value = float(value_str.split()[0].replace(',', ''))
-        metrics_data[metric].append(value)
-
-# Translate metric names
-metric_translations = {
-    'task_clock': 'Tempo de Tarefa',
-    'cycles': 'Ciclos',
-    'stalled_cycles_frontend': 'Ciclos Parados no Frontend',
-    'instructions': 'Instruções',
-    'branches': 'Ramificações',
-    'branch_misses': 'Falhas de Ramificação',
-    'l1_dcache_loads': 'Carregamentos L1 DCache',
-    'l1_dcache_load_misses': 'Falhas de Carregamento L1 DCache'
-}
-
-# Separate factorial executions and others
-factorial_indices = [i for i, name in enumerate(names) if 'fatorial' in name]
-other_indices = [i for i, name in enumerate(names) if 'fatorial' not in name]
-
-factorial_names = [names[i] for i in factorial_indices]
-factorial_real_times = [real_times[i] for i in factorial_indices]
-factorial_user_times = [user_times[i] for i in factorial_indices]
-factorial_sys_times = [sys_times[i] for i in factorial_indices]
-
-other_names = [names[i] for i in other_indices]
-other_real_times = [real_times[i] for i in other_indices]
-other_user_times = [user_times[i] for i in other_indices]
-other_sys_times = [sys_times[i] for i in other_indices]
-
-# Plot execution times for factorial functions
-plt.figure(figsize=(10, 5))
-plt.barh(factorial_names, factorial_real_times, color='lightcoral', label='Tempo Real')
-plt.barh(factorial_names, factorial_user_times, color='skyblue', label='Tempo de Usuário', left=factorial_real_times)
-plt.barh(factorial_names, factorial_sys_times, color='lightgreen', label='Tempo de Sistema', left=[r + u for r, u in zip(factorial_real_times, factorial_user_times)])
-plt.xlabel('Tempo (segundos)')
-plt.title('Comparação dos Tempos de Execução para Fatorial')
-plt.legend()
-plt.tight_layout()
-plt.savefig('resultados/tempo_execucao_fatorial.png')
-plt.close()
-
-# Plot execution times for other functions
-plt.figure(figsize=(10, 5))
-plt.barh(other_names, other_real_times, color='lightcoral', label='Tempo Real')
-plt.barh(other_names, other_user_times, color='skyblue', label='Tempo de Usuário', left=other_real_times)
-plt.barh(other_names, other_sys_times, color='lightgreen', label='Tempo de Sistema', left=[r + u for r, u in zip(other_real_times, other_user_times)])
-plt.xlabel('Tempo (segundos)')
-plt.title('Comparação dos Tempos de Execução para Outras Funções')
-plt.legend()
-plt.tight_layout()
-plt.savefig('resultados/tempo_execucao_outras.png')
-plt.close()
-
-# Plot each metric
-for metric, values in metrics_data.items():
+    import json
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import os
+    import re
+    
+    if not os.path.exists('resultados'):
+        os.makedirs('resultados')
+    
+    with open('DockerRun.json') as f:
+        data = json.load(f)
+    
+    executions = data['executions']
+    metrics = ['task_clock', 'cycles', 'instructions', 'branches', 'branch_misses', 'l1_dcache_loads', 'l1_dcache_load_misses']
+    
+    metrics_data = {metric: [] for metric in metrics}
+    names = []
+    real_times = []
+    user_times = []
+    sys_times = []
+    
+    def parse_time(time_str):
+        # Extract only the numeric part and convert it to float
+        return float(re.findall(r"[-+]?\d*\.\d+|\d+", time_str)[0])
+    
+    for execution in executions:
+        names.append(f"{execution['name']} {execution.get('input', '')}".strip())
+        real_time_str = execution['real_time']
+        user_time_str = execution['user_time']
+        sys_time_str = execution['sys_time']
+        real_times.append(parse_time(real_time_str)) 
+        user_times.append(parse_time(user_time_str)) 
+        sys_times.append(parse_time(sys_time_str))   
+        for metric in metrics:
+            value_str = execution['perf_output'].get(metric, '0')
+            value = float(value_str.split()[0].replace(',', ''))
+            metrics_data[metric].append(value)
+    
+    metric_translations = {
+        'task_clock': 'Tempo de Tarefa',
+        'cycles': 'Ciclos',
+        'instructions': 'Instruções',
+        'branches': 'Ramificações',
+        'branch_misses': 'Falhas de Ramificação',
+        'l1_dcache_loads': 'Carregamentos L1 DCache',
+        'l1_dcache_load_misses': 'Falhas de Carregamento L1 DCache'
+    }
+    
+    # Cálculo das métricas adicionais
+    def calculate_metrics(execution, real_time, user_time, sys_time):
+        instructions = float(execution['perf_output']['instructions'].split()[0].replace(',', ''))
+        cycles = float(execution['perf_output']['cycles'].split()[0].replace(',', ''))
+        
+        # Assumindo frequência do clock em Hz (ex: 2.5GHz = 2.5 * 10^9 Hz)
+        clock_frequency = 2.5 * 10**9 
+        
+        # Tempo de CPU
+        cpu_time = cycles / clock_frequency
+    
+        # Percentual do tempo total gasto pela CPU no programa
+        total_cpu_time = user_time + sys_time
+        percent_cpu_time = total_cpu_time / real_time
+    
+        # MIPS
+        mips = (instructions / total_cpu_time) / 10**6
+    
+        # Assumindo um número fictício de operações de ponto flutuante
+        floating_point_operations = 10**6 
+        mflops = (floating_point_operations / total_cpu_time) / 10**6
+    
+        # Performance
+        performance = 1 / real_time
+    
+        return percent_cpu_time, mips, mflops, cpu_time, performance
+    
+    # Calcular e exibir métricas para cada execução
+    for i, execution in enumerate(executions):
+        real_time = real_times[i]
+        user_time = user_times[i]
+        sys_time = sys_times[i]
+        percent_cpu_time, mips, mflops, cpu_time, performance = calculate_metrics(execution, real_time, user_time, sys_time)
+    
+        print(f"Métricas para {names[i]}:")
+        print(f"Percentual do tempo total gasto pela CPU: {percent_cpu_time:.2f}")
+        print(f"MIPS: {mips:.2f}")
+        print(f"MFLOPS: {mflops:.2f}")
+        print(f"Tempo de CPU: {cpu_time:.6f} segundos")
+        print(f"Performance: {performance:.6f}")
+        print()
+    
+    factorial_indices = [i for i, name in enumerate(names) if 'fatorial' in name]
+    other_indices = [i for i, name in enumerate(names) if 'fatorial' not in name]
+    
+    factorial_names = [names[i] for i in factorial_indices]
+    factorial_real_times = [real_times[i] for i in factorial_indices]
+    factorial_user_times = [user_times[i] for i in factorial_indices]
+    factorial_sys_times = [sys_times[i] for i in factorial_indices]
+    
+    other_names = [names[i] for i in other_indices]
+    other_real_times = [real_times[i] for i in other_indices]
+    other_user_times = [user_times[i] for i in other_indices]
+    other_sys_times = [sys_times[i] for i in other_indices]
+    
     plt.figure(figsize=(10, 5))
-    plt.barh(names, values, color='skyblue')
-    plt.xlabel(metric_translations[metric])
-    plt.title(f'Comparação de {metric_translations[metric]} entre Execuções')
+    plt.barh(factorial_names, factorial_real_times, color='lightcoral', label='Tempo Real')
+    plt.barh(factorial_names, factorial_user_times, color='skyblue', label='Tempo de Usuário', left=np.array(factorial_real_times))
+    plt.barh(factorial_names, factorial_sys_times, color='lightgreen', label='Tempo de Sistema', left=np.array(factorial_real_times) + np.array(factorial_user_times))
+    plt.xlabel('Tempo (segundos)')
+    plt.title('Comparação dos Tempos de Execução para Fatorial')
+    plt.legend()
     plt.tight_layout()
-    plt.savefig(f'resultados/{metric}.png')
+    plt.savefig('resultados/tempo_execucao_fatorial.png')
     plt.close()
+    
+    plt.figure(figsize=(10, 5))
+    plt.barh(other_names, other_real_times, color='lightcoral', label='Tempo Real')
+    plt.barh(other_names, other_user_times, color='skyblue', label='Tempo de Usuário', left=np.array(other_real_times))
+    plt.barh(other_names, other_sys_times, color='lightgreen', label='Tempo de Sistema', left=np.array(other_real_times) + np.array(other_user_times))
+    plt.xlabel('Tempo (segundos)')
+    plt.title('Comparação dos Tempos de Execução para Outras Funções')
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig('resultados/tempo_execucao_outras.png')
+    plt.close()
+    
+    for metric, values in metrics_data.items():
+        plt.figure(figsize=(10, 5))
+        plt.barh(names, values, color='skyblue')
+        plt.xlabel(metric_translations[metric])
+        plt.title(f'Comparação de {metric_translations[metric]} entre Execuções')
+        plt.tight_layout()
+        plt.savefig(f'resultados/{metric}.png')
+        plt.close()
+    
 \end{verbatim}
 
 \newpage
@@ -247,7 +368,7 @@ Os gráficos a seguir apresentam os tempos de execução dos algoritmos recursiv
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{resultados/tempo_execucao_fatorial.png}
-    \caption{Tempo de Execução dos Algoritmos de Fatorial}
+    \caption{Tempo de Execução dos Algoritmos de Fatorial (perf)}
     \label{fig:tempo_execucao}
 \end{figure}
 
@@ -308,145 +429,217 @@ Nesta seção, apresentamos as métricas de desempenho detalhadas para diferente
 \subsection{Métricas Detalhadas}
 
 \begin{itemize}
+    \item \textbf{Métricas para fatorial\_recursivo 10}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 1.07
+        \item MIPS: 328.94
+        \item MFLOPS: 475.06
+        \item Tempo de CPU: 0.000585 segundos
+        \item Performance: 510.041701
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_iterativo 10}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 1.19
+        \item MIPS: 282.64
+        \item MFLOPS: 400.00
+        \item Tempo de CPU: 0.000618 segundos
+        \item Performance: 477.432027
+    \end{itemize}
+
     \item \textbf{Métricas para fatorial\_recursivo 20}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 1.18
-        \item MIPS: 682.60
-        \item MFLOPS: 1031.99
-        \item Tempo de CPU: 0.000541 segundos
-        \item Performance: 1214.742110
+        \item Percentual do tempo total gasto pela CPU: 0.61
+        \item MIPS: 289.25
+        \item MFLOPS: 410.68
+        \item Tempo de CPU: 0.000677 segundos
+        \item Performance: 249.671869
     \end{itemize}
 
     \item \textbf{Métricas para fatorial\_iterativo 20}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 1.05
-        \item MIPS: 833.61
-        \item MFLOPS: 1222.49
-        \item Tempo de CPU: 0.000529 segundos
-        \item Performance: 1284.985332
+        \item Percentual do tempo total gasto pela CPU: 1.48
+        \item MIPS: 278.49
+        \item MFLOPS: 391.85
+        \item Tempo de CPU: 0.000690 segundos
+        \item Performance: 578.603921
     \end{itemize}
 
-    \item \textbf{Métricas para fatorial\_recursivo 21}:
+    \item \textbf{Métricas para fatorial\_recursivo 30}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 1.11
-        \item MIPS: 802.22
-        \item MFLOPS: 1177.86
-        \item Tempo de CPU: 0.000531 segundos
-        \item Performance: 1305.280250
+        \item Percentual do tempo total gasto pela CPU: 0.19
+        \item MIPS: 2995.12
+        \item MFLOPS: 4166.67
+        \item Tempo de CPU: 0.000603 segundos
+        \item Performance: 774.745167
     \end{itemize}
 
-    \item \textbf{Métricas para fatorial\_iterativo 21}:
+    \item \textbf{Métricas para fatorial\_iterativo 30}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 0.74
-        \item MIPS: 763.74
-        \item MFLOPS: 1108.65
-        \item Tempo de CPU: 0.000547 segundos
-        \item Performance: 819.785692
+        \item Percentual do tempo total gasto pela CPU: 0.97
+        \item MIPS: 513.58
+        \item MFLOPS: 714.29
+        \item Tempo de CPU: 0.000643 segundos
+        \item Performance: 695.476067
     \end{itemize}
 
-    \item \textbf{Métricas para fatorial\_recursivo 22}:
+    \item \textbf{Métricas para fatorial\_recursivo 40}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 0.82
-        \item MIPS: 777.99
-        \item MFLOPS: 1177.86
-        \item Tempo de CPU: 0.000519 segundos
-        \item Performance: 966.626262
+        \item Percentual do tempo total gasto pela CPU: 1.14
+        \item MIPS: 523.93
+        \item MFLOPS: 688.71
+        \item Tempo de CPU: 0.000625 segundos
+        \item Performance: 781.710476
     \end{itemize}
 
-    \item \textbf{Métricas para fatorial\_iterativo 22}:
-    \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 1.10
-        \item MIPS: 768.72
-        \item MFLOPS: 1129.94
-        \item Tempo de CPU: 0.000541 segundos
-        \item Performance: 1243.903319
-    \end{itemize}
-
-    \item \textbf{Métricas para fatorial\_recursivo 23}:
-    \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 0.11
-        \item MIPS: 7792.54
-        \item MFLOPS: 11904.76
-        \item Tempo de CPU: 0.000503 segundos
-        \item Performance: 1299.513072
-    \end{itemize}
-
-    \item \textbf{Métricas para fatorial\_iterativo 23}:
+    \item \textbf{Métricas para fatorial\_iterativo 40}:
     \begin{itemize}
         \item Percentual do tempo total gasto pela CPU: 1.12
-        \item MIPS: 821.25
-        \item MFLOPS: 1236.09
-        \item Tempo de CPU: 0.000499 segundos
-        \item Performance: 1387.695856
+        \item MIPS: 512.61
+        \item MFLOPS: 676.59
+        \item Tempo de CPU: 0.000642 segundos
+        \item Performance: 759.330271
     \end{itemize}
 
-    \item \textbf{Métricas para fatorial\_recursivo 24}:
+    \item \textbf{Métricas para fatorial\_recursivo 50}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 0.91
-        \item MIPS: 152.17
-        \item MFLOPS: 227.38
-        \item Tempo de CPU: 0.000659 segundos
-        \item Performance: 207.334585
+        \item Percentual do tempo total gasto pela CPU: 1.15
+        \item MIPS: 503.98
+        \item MFLOPS: 634.92
+        \item Tempo de CPU: 0.000664 segundos
+        \item Performance: 728.938949
     \end{itemize}
 
-    \item \textbf{Métricas para fatorial\_iterativo 24}:
+    \item \textbf{Métricas para fatorial\_iterativo 50}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 1.11
-        \item MIPS: 721.11
-        \item MFLOPS: 1095.29
-        \item Tempo de CPU: 0.000542 segundos
-        \item Performance: 1219.034988
+        \item Percentual do tempo total gasto pela CPU: 0.94
+        \item MIPS: 506.31
+        \item MFLOPS: 645.16
+        \item Tempo de CPU: 0.000688 segundos
+        \item Performance: 606.211975
     \end{itemize}
 
-    \item \textbf{Métricas para fatorial\_recursivo 25}:
-    \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 0.83
-        \item MIPS: 308.46
-        \item MFLOPS: 451.47
-        \item Tempo de CPU: 0.000638 segundos
-        \item Performance: 376.609961
-    \end{itemize}
-
-    \item \textbf{Métricas para fatorial\_iterativo 25}:
+    \item \textbf{Métricas para fatorial\_recursivo 60}:
     \begin{itemize}
         \item Percentual do tempo total gasto pela CPU: 1.10
-        \item MIPS: 786.03
-        \item MFLOPS: 1176.47
-        \item Tempo de CPU: 0.000530 segundos
-        \item Performance: 1289.292810
+        \item MIPS: 463.51
+        \item MFLOPS: 555.86
+        \item Tempo de CPU: 0.000781 segundos
+        \item Performance: 610.654579
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_iterativo 60}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 0.18
+        \item MIPS: 3214.19
+        \item MFLOPS: 3875.97
+        \item Tempo de CPU: 0.000681 segundos
+        \item Performance: 682.795666
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_recursivo 70}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 1.13
+        \item MIPS: 659.18
+        \item MFLOPS: 745.71
+        \item Tempo de CPU: 0.000631 segundos
+        \item Performance: 844.712312
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_iterativo 70}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 1.10
+        \item MIPS: 492.04
+        \item MFLOPS: 553.10
+        \item Tempo de CPU: 0.000864 segundos
+        \item Performance: 611.065044
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_recursivo 80}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 1.14
+        \item MIPS: 483.83
+        \item MFLOPS: 505.05
+        \item Tempo de CPU: 0.000808 segundos
+        \item Performance: 573.493476
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_iterativo 80}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 1.03
+        \item MIPS: 503.15
+        \item MFLOPS: 533.90
+        \item Tempo de CPU: 0.000878 segundos
+        \item Performance: 549.992383
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_recursivo 90}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 0.98
+        \item MIPS: 591.03
+        \item MFLOPS: 583.43
+        \item Tempo de CPU: 0.000797 segundos
+        \item Performance: 573.065903
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_iterativo 90}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 0.17
+        \item MIPS: 3672.06
+        \item MFLOPS: 3623.19
+        \item Tempo de CPU: 0.000854 segundos
+        \item Performance: 607.870217
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_recursivo 100}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 1.15
+        \item MIPS: 595.57
+        \item MFLOPS: 545.55
+        \item Tempo de CPU: 0.000809 segundos
+        \item Performance: 625.671815
+    \end{itemize}
+
+    \item \textbf{Métricas para fatorial\_iterativo 100}:
+    \begin{itemize}
+        \item Percentual do tempo total gasto pela CPU: 0.58
+        \item MIPS: 1196.09
+        \item MFLOPS: 1096.49
+        \item Tempo de CPU: 0.000785 segundos
+        \item Performance: 631.041831
     \end{itemize}
 
     \item \textbf{Métricas para divisao\_inteiros}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 1.01
-        \item MIPS: 6042.20
-        \item MFLOPS: 227.38
-        \item Tempo de CPU: 0.004896 segundos
-        \item Performance: 230.621509
+        \item Percentual do tempo total gasto pela CPU: 0.85
+        \item MIPS: 4265.53
+        \item MFLOPS: 160.49
+        \item Tempo de CPU: 0.005984 segundos
+        \item Performance: 136.773927
     \end{itemize}
 
     \item \textbf{Métricas para divisao\_float}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 0.98
-        \item MIPS: 906.79
-        \item MFLOPS: 42.08
-        \item Tempo de CPU: 0.027868 segundos
-        \item Performance: 41.145299
+        \item Percentual do tempo total gasto pela CPU: 0.82
+        \item MIPS: 832.82
+        \item MFLOPS: 38.69
+        \item Tempo de CPU: 0.031143 segundos
+        \item Performance: 31.678046
     \end{itemize}
 
     \item \textbf{Métricas para operacoes\_arquivo}:
     \begin{itemize}
-        \item Percentual do tempo total gasto pela CPU: 0.99
-        \item MIPS: 5911.73
-        \item MFLOPS: 4.87
-        \item Tempo de CPU: 0.224655 segundos
-        \item Performance: 4.832881
+        \item Percentual do tempo total gasto pela CPU: 1.00
+        \item MIPS: 4002.54
+        \item MFLOPS: 3.27
+        \item Tempo de CPU: 0.242996 segundos
+        \item Performance: 3.268903
     \end{itemize}
 \end{itemize}
 
 \newpage
 
 \section{Conclusão}
-A análise de desempenho realizada revelou que, para o cálculo do fatorial de números relativamente grandes (20 a 25), o método iterativo é mais eficiente em termos de tempo de execução e uso de ciclos de CPU. As operações de divisão mostraram-se eficientes, enquanto as operações de escrita em arquivo apresentaram maior overhead devido ao I/O. A ferramenta \textit{perf} foi essencial para coletar métricas detalhadas de desempenho, possibilitando uma análise mais aprofundada.
+A análise de desempenho realizada revelou que, para o cálculo do fatorial de números relativamente grandes, o método iterativo tende a ser menos discrepante em termos de tempo de execução e uso de ciclos de CPU. As operações de divisão mostraram-se eficientes, enquanto as operações de escrita em arquivo apresentaram maior overhead devido ao I/O. A ferramenta \textit{perf} foi essencial para coletar métricas detalhadas de desempenho, possibilitando uma análise mais aprofundada do que o \textit{time}.
 
 \end{document}

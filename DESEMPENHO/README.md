@@ -1,6 +1,6 @@
 Computer architeture 2 assignement to calculate perfomance in various contexts.
 
-Docker was used to run ubuntu. Docker Desktop should be up and running
+Docker was used to run ubuntu. Docker Desktop must be up and running to work.
 
 ### Docker commands
 

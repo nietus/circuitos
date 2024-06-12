@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Teste com time para os programas de fatorial
-for i in {20..25}; do
+for i in 10 20 30 40 50 60 70 80 90 100; do
     echo "Executando fatorial_recursivo com entrada $i"
     time ./fatorial_recursivo $i
     echo "Executando fatorial_iterativo com entrada $i"
@@ -9,7 +9,7 @@ for i in {20..25}; do
 done
 
 # Teste com perf para os programas de fatorial
-for i in {20..25}; do
+for i in 10 20 30 40 50 60 70 80 90 100; do
     echo "Executando perf com fatorial_recursivo e entrada $i"
     perf stat -d ./fatorial_recursivo $i
     echo "Executando perf com fatorial_iterativo e entrada $i"

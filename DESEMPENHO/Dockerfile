@@ -1,7 +1,5 @@
-# Use an Ubuntu-based image
 FROM ubuntu:20.04
 
-# Set the environment to noninteractive to avoid prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Installing dependencies
@@ -25,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     liblzma-dev \
     libzstd-dev \
     libcap-dev \
+    dos2unix \
     && rm -rf /var/lib/apt/lists/*
 
 # Install matplotlib for plotting
@@ -45,9 +44,11 @@ COPY wfile.c /usr/src/myapp/
 
 # Copy the script to run the tests
 COPY run_tests.sh /usr/src/myapp/
-
 # Copy the script to plot the results
 COPY plot.py /usr/src/myapp/
+
+# Convert line endings of the script
+RUN dos2unix /usr/src/myapp/run_tests.sh
 
 # Set the working directory
 WORKDIR /usr/src/myapp
@@ -64,4 +65,4 @@ RUN chmod +x /usr/src/myapp/run_tests.sh
 RUN chmod +x /usr/src/myapp/plot.py
 
 # Run the tests and plot the results when the container starts
-CMD ["./run_tests.sh"]
+CMD ["/bin/bash", "-c", "./run_tests.sh"]

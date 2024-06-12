@@ -45,8 +45,6 @@ INPUT c:/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 INPUT c:/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty
-INPUT c:/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty
-INPUT c:/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty
@@ -57,6 +55,8 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT c:/texlive/2024/texmf-dist/tex/generic/stringenc/stringenc.sty
+INPUT c:/texlive/2024/texmf-dist/tex/generic/stringenc/stringenc.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
@@ -158,6 +158,11 @@ OUTPUT desempenho.toc
 INPUT c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT ./resultados/time_fatorial.png
+INPUT ./resultados/time_fatorial.png
+INPUT ./resultados/time_fatorial.png
+INPUT ./resultados/time_fatorial.png
+INPUT ./resultados/time_fatorial.png
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT ./resultados/tempo_execucao_fatorial.png
 INPUT ./resultados/tempo_execucao_fatorial.png

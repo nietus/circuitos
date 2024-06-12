@@ -1,12 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-unsigned long long int factorial(unsigned long long int n) {
-    unsigned long long int result = 1;
-    for (unsigned long long int i = 1; i <= n; ++i) {
-        result *= i;
+#define MAX_DIGITS 5000
+
+void multiply(int result[], int *result_size, int x) {
+    int carry = 0;
+    for (int i = 0; i < *result_size; ++i) {
+        int prod = result[i] * x + carry;
+        result[i] = prod % 10;
+        carry = prod / 10;
     }
-    return result;
+
+    while (carry) {
+        result[(*result_size)++] = carry % 10;
+        carry /= 10;
+    }
+}
+
+void factorial_iterative(int result[], int *result_size, int n) {
+    for (int x = 2; x <= n; ++x) {
+        multiply(result, result_size, x);
+    }
+}
+
+void print_result(int result[], int result_size) {
+    for (int i = result_size - 1; i >= 0; --i) {
+        printf("%d", result[i]);
+    }
+    printf("\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -15,9 +37,20 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    unsigned long long int num = atoll(argv[1]);
-    unsigned long long int result = factorial(num);
-    printf("Fatorial de %llu é %llu\n", num, result);
+    int num = atoi(argv[1]);
+    if (num < 0) {
+        printf("Please enter a non-negative integer.\n");
+        return 1;
+    }
+
+    int result[MAX_DIGITS];
+    memset(result, 0, sizeof(result));
+    result[0] = 1;
+    int result_size = 1;
+
+    factorial_iterative(result, &result_size, num);
+
+    print_result(result, result_size);
 
     return 0;
 }
