@@ -1,5 +1,4 @@
-Circuits and codes for Computer Architeture 2's subject
-
+*Circuits and codes for Computer Architeture 2's subject*
 
 [DESEMPENHO/](./DESEMPENHO)
 
