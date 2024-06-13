@@ -19,7 +19,7 @@
 \maketitle
 
 \begin{abstract}
-Este relatório tem como objetivo explorar os conceitos de análise de desempenho de algoritmos, utilizando ferramentas como \textit{time} e \textit{perf} em um ambiente Linux, especificamente na distribuição Ubuntu 20.04 do Docker (comandos para execução no README.md). O estudo foca na implementação de algoritmos para cálculo do fatorial de um número, utilizando métodos recursivo e iterativo, bem como na comparação de desempenho entre eles. Adicionalmente, foram analisados algoritmos de divisão e operações de escrita em arquivo. \textbf{O DockerRun.txt tem os dados brutos da execução do container}.
+ Este relatório tem como objetivo explorar os conceitos de análise de desempenho de algoritmos, utilizando ferramentas como \textit{time} e \textit{perf} em um ambiente Linux, especificamente na distribuição Ubuntu 20.04 usando Docker. O estudo foca na implementação de algoritmos para cálculo do fatorial de um número, utilizando métodos recursivo e iterativo, bem como na comparação de desempenho entre eles. Adicionalmente, foram analisados algoritmos de divisão e operações de escrita em arquivo. \textbf{O DockerRun.txt} tem os dados brutos da execução do container, e os comandos utilizados podem ser encontrados no  \textbf{README.md}. Códigos do container estão no \textbf{DockerFile}, com uma implementação bem sucedida do \textit{perf} mesmo usando WSL2.
 \end{abstract}
 
 \tableofcontents
@@ -157,7 +157,7 @@ int main(int argc, char *argv[]) {
 
 \newpage
 
-Grafico representando o comando time executado nos códigos acima de fatorial. Demonstrou ser pouco preciso.
+Gráfico representando o comando time executado nos códigos de fatorial. Demonstrou ser pouco preciso.
 
 \begin{figure}[H]
     \centering

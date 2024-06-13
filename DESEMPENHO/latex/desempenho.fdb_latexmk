@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1718233361.55299 "c:/Users/anton/OneDrive/code/circuitos/DESEMPENHO/latex/desempenho.tex" "desempenho.pdf" "desempenho" 1718233364.16926 0
-  "c:/Users/anton/OneDrive/code/circuitos/DESEMPENHO/latex/desempenho.tex" 1718233357 23238 49114e346178274fd55c62f5aa6a790e ""
+["pdflatex"] 1718236762.42027 "c:/Users/anton/OneDrive/code/circuitos/DESEMPENHO/latex/desempenho.tex" "desempenho.pdf" "desempenho" 1718236766.14249 0
+  "c:/Users/anton/OneDrive/code/circuitos/DESEMPENHO/latex/desempenho.tex" 1718236762 23395 3f2dc1e13a009a793239397a17da442a ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1713993058 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1713995800 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1713994359 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -90,10 +90,10 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1714005559 5519690 1698f96789543a09b6b0e33aada59581 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1714006039 8222497 c4ac824ff719c7fbd6025261ac9fb7e0 ""
   "c:/texlive/2024/texmf.cnf" 1714005513 713 e69b156964470283e0530f5060668171 ""
-  "desempenho.aux" 1718233363 3183 3e7276657e1cda57fe538b3c71b0cdbf "pdflatex"
-  "desempenho.out" 1718233363 2165 e9ba881a1c484af8969996f9638ac9c6 "pdflatex"
-  "desempenho.tex" 1718233357 23238 49114e346178274fd55c62f5aa6a790e ""
-  "desempenho.toc" 1718233363 1178 5b546b63a664b23a4687be2f4ab50cf5 "pdflatex"
+  "desempenho.aux" 1718236765 3183 3e7276657e1cda57fe538b3c71b0cdbf "pdflatex"
+  "desempenho.out" 1718236765 2165 e9ba881a1c484af8969996f9638ac9c6 "pdflatex"
+  "desempenho.tex" 1718236762 23395 3f2dc1e13a009a793239397a17da442a ""
+  "desempenho.toc" 1718236765 1178 5b546b63a664b23a4687be2f4ab50cf5 "pdflatex"
   "resultados/cycles.png" 1718158645 66904 21bac798e925a05ec12f12b282852bc9 ""
   "resultados/instructions.png" 1718158646 67351 a2ef0ce11cb0c0659c738e33750b6458 ""
   "resultados/tempo_execucao_fatorial.png" 1718158643 69480 d37d406c5e891b72169bad21cc4835ea ""

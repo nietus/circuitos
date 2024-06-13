@@ -1,6 +1,6 @@
 Computer architeture 2 assignement to calculate perfomance in various contexts.
 
-Docker was used to run ubuntu. Docker Desktop must be up and running to work.
+Docker Desktop must be up and running before you execute the commands.
 
 ### Docker commands
 
@@ -10,7 +10,7 @@ docker run --privileged -it desempenho-app > DockerRun.txt
 
 ### Outputs
 
-DockerRun.txt > All the execution log with metrics
+DockerRun.txt  contains all the execution log with metrics
 
 DockerRun.json was artificially created with one of the DockerRun.txt obtained
 
