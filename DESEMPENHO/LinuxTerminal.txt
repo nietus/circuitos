@@ -1,0 +1,711 @@
+niet@filthcat:~/Downloads/circuitos/DESEMPENHO$ ls
+Dockerfile      fat.c     floating.c  linux.sh        run_tests.sh
+DockerRun.json  fatrec    integers    plot.py         wfile
+DockerRun.txt   fatrec.c  integers.c  README.md       wfile.c
+fat             floating  latex       resultados.txt
+niet@filthcat:~/Downloads/circuitos/DESEMPENHO$ time ./fat 100
+93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+
+real	0m0,003s
+user	0m0,002s
+sys	0m0,000s
+niet@filthcat:~/Downloads/circuitos/DESEMPENHO$ perf stat -h
+
+ Usage: perf stat [<options>] [<command>]
+
+    -a, --all-cpus        system-wide collection from all CPUs
+    -A, --no-aggr         disable CPU count aggregation
+    -B, --big-num         print large numbers with thousands' separators
+    -C, --cpu <cpu>       list of cpus to monitor in system-wide
+    -D, --delay <n>       ms to wait before starting measurement after program>
+    -d, --detailed        detailed run - start a lot of events
+    -e, --event <event>   event selector. use 'perf list' to list available ev>
+    -G, --cgroup <name>   monitor event in cgroup name only
+    -g, --group           put the counters into a counter group
+    -I, --interval-print <n>
+                          print counts at regular interval in ms (overhead is >
+    -i, --no-inherit      child tasks do not inherit counters
+    -M, --metrics <metric/metric group list>
+                          monitor specified metrics or metric groups (separate>
+    -n, --null            null run - dont start any counters
+    -o, --output <file>   output file name
+    -p, --pid <pid>       stat events on existing process id
+    -r, --repeat <n>      repeat command and print average + stddev (max: 100,>
+    -S, --sync            call sync() before starting a run
+    -t, --tid <tid>       stat events on existing thread id
+    -T, --transaction     hardware transaction statistics
+    -v, --verbose         be more verbose (show counter open errors, etc)
+    -x, --field-separator <separator>
+                          print counts with custom separator
+        --all-kernel      Configure all used events to run in kernel space.
+niet@filthcat:~/Downloads/circuitos/DESEMPENHO$ ./linux.sh
+Executando fatrec com entrada 10
+3628800
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando fat com entrada 10
+3628800
+
+real	0m0,002s
+user	0m0,001s
+sys	0m0,001s
+Executando fatrec com entrada 20
+2432902008176640000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando fat com entrada 20
+2432902008176640000
+
+real	0m0,002s
+user	0m0,001s
+sys	0m0,000s
+Executando fatrec com entrada 30
+265252859812191058636308480000000
+
+real	0m0,003s
+user	0m0,001s
+sys	0m0,000s
+Executando fat com entrada 30
+265252859812191058636308480000000
+
+real	0m0,002s
+user	0m0,000s
+sys	0m0,002s
+Executando fatrec com entrada 40
+815915283247897734345611269596115894272000000000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando fat com entrada 40
+815915283247897734345611269596115894272000000000
+
+real	0m0,002s
+user	0m0,001s
+sys	0m0,000s
+Executando fatrec com entrada 50
+30414093201713378043612608166064768844377641568960512000000000000
+
+real	0m0,002s
+user	0m0,001s
+sys	0m0,000s
+Executando fat com entrada 50
+30414093201713378043612608166064768844377641568960512000000000000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando fatrec com entrada 60
+8320987112741390144276341183223364380754172606361245952449277696409600000000000000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,001s
+Executando fat com entrada 60
+8320987112741390144276341183223364380754172606361245952449277696409600000000000000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando fatrec com entrada 70
+11978571669969891796072783721689098736458938142546425857555362864628009582789845319680000000000000000
+
+real	0m0,002s
+user	0m0,001s
+sys	0m0,000s
+Executando fat com entrada 70
+11978571669969891796072783721689098736458938142546425857555362864628009582789845319680000000000000000
+
+real	0m0,002s
+user	0m0,000s
+sys	0m0,002s
+Executando fatrec com entrada 80
+71569457046263802294811533723186532165584657342365752577109445058227039255480148842668944867280814080000000000000000000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando fat com entrada 80
+71569457046263802294811533723186532165584657342365752577109445058227039255480148842668944867280814080000000000000000000
+
+real	0m0,002s
+user	0m0,000s
+sys	0m0,002s
+Executando fatrec com entrada 90
+1485715964481761497309522733620825737885569961284688766942216863704985393094065876545992131370884059645617234469978112000000000000000000000
+
+real	0m0,002s
+user	0m0,001s
+sys	0m0,000s
+Executando fat com entrada 90
+1485715964481761497309522733620825737885569961284688766942216863704985393094065876545992131370884059645617234469978112000000000000000000000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando fatrec com entrada 100
+93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando fat com entrada 100
+93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+
+real	0m0,002s
+user	0m0,002s
+sys	0m0,000s
+Executando perf com fatrec e entrada 10
+3628800
+
+ Performance counter stats for './fatrec 10':
+
+              1,94 msec task-clock                #    0,744 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+                59      page-faults               #   30,456 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,002603542 seconds time elapsed
+
+       0,002673000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fat e entrada 10
+3628800
+
+ Performance counter stats for './fat 10':
+
+              1,31 msec task-clock                #    0,694 CPUs utilized          
+                 2      context-switches          #    1,528 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                60      page-faults               #   45,826 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,001887090 seconds time elapsed
+
+       0,001911000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fatrec e entrada 20
+2432902008176640000
+
+ Performance counter stats for './fatrec 20':
+
+              1,46 msec task-clock                #    0,604 CPUs utilized          
+                 2      context-switches          #    1,368 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                57      page-faults               #   38,978 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,002421653 seconds time elapsed
+
+       0,002288000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fat e entrada 20
+2432902008176640000
+
+ Performance counter stats for './fat 20':
+
+              1,38 msec task-clock                #    0,574 CPUs utilized          
+                 2      context-switches          #    1,445 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   41,895 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,002412871 seconds time elapsed
+
+       0,002049000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fatrec e entrada 30
+265252859812191058636308480000000
+
+ Performance counter stats for './fatrec 30':
+
+              1,54 msec task-clock                #    0,661 CPUs utilized          
+                 2      context-switches          #    1,297 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                57      page-faults               #   36,974 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,002334007 seconds time elapsed
+
+       0,002207000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fat e entrada 30
+265252859812191058636308480000000
+
+ Performance counter stats for './fat 30':
+
+              1,54 msec task-clock                #    0,677 CPUs utilized          
+                 2      context-switches          #    1,300 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   37,696 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,002272217 seconds time elapsed
+
+       0,002282000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fatrec e entrada 40
+815915283247897734345611269596115894272000000000
+
+ Performance counter stats for './fatrec 40':
+
+              2,06 msec task-clock                #    0,562 CPUs utilized          
+                 2      context-switches          #  968,795 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   28,095 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,003672476 seconds time elapsed
+
+       0,000000000 seconds user
+       0,002665000 seconds sys
+
+
+Executando perf com fat e entrada 40
+815915283247897734345611269596115894272000000000
+
+ Performance counter stats for './fat 40':
+
+              1,24 msec task-clock                #    0,675 CPUs utilized          
+                 2      context-switches          #    1,617 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                60      page-faults               #   48,496 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,001833722 seconds time elapsed
+
+       0,001852000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fatrec e entrada 50
+30414093201713378043612608166064768844377641568960512000000000000
+
+ Performance counter stats for './fatrec 50':
+
+              2,00 msec task-clock                #    0,547 CPUs utilized          
+                 3      context-switches          #    1,501 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                60      page-faults               #   30,014 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,003656504 seconds time elapsed
+
+       0,002570000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fat e entrada 50
+30414093201713378043612608166064768844377641568960512000000000000
+
+ Performance counter stats for './fat 50':
+
+              1,66 msec task-clock                #    0,468 CPUs utilized          
+                 4      context-switches          #    2,417 K/sec                  
+                 1      cpu-migrations            #  604,187 /sec                   
+                57      page-faults               #   34,439 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,003533784 seconds time elapsed
+
+       0,002187000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fatrec e entrada 60
+8320987112741390144276341183223364380754172606361245952449277696409600000000000000
+
+ Performance counter stats for './fatrec 60':
+
+              1,97 msec task-clock                #    0,839 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   29,470 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,002345822 seconds time elapsed
+
+       0,000000000 seconds user
+       0,002364000 seconds sys
+
+
+Executando perf com fat e entrada 60
+8320987112741390144276341183223364380754172606361245952449277696409600000000000000
+
+ Performance counter stats for './fat 60':
+
+              1,40 msec task-clock                #    0,788 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   41,407 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,001777055 seconds time elapsed
+
+       0,001997000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fatrec e entrada 70
+11978571669969891796072783721689098736458938142546425857555362864628009582789845319680000000000000000
+
+ Performance counter stats for './fatrec 70':
+
+              1,28 msec task-clock                #    0,516 CPUs utilized          
+                 2      context-switches          #    1,557 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                57      page-faults               #   44,364 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,002490170 seconds time elapsed
+
+       0,001958000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fat e entrada 70
+11978571669969891796072783721689098736458938142546425857555362864628009582789845319680000000000000000
+
+ Performance counter stats for './fat 70':
+
+              4,78 msec task-clock                #    0,401 CPUs utilized          
+                 8      context-switches          #    1,675 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   12,141 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,011916327 seconds time elapsed
+
+       0,000000000 seconds user
+       0,005426000 seconds sys
+
+
+Executando perf com fatrec e entrada 80
+71569457046263802294811533723186532165584657342365752577109445058227039255480148842668944867280814080000000000000000000
+
+ Performance counter stats for './fatrec 80':
+
+              1,60 msec task-clock                #    0,361 CPUs utilized          
+                 2      context-switches          #    1,248 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                57      page-faults               #   35,567 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,004437876 seconds time elapsed
+
+       0,000000000 seconds user
+       0,002659000 seconds sys
+
+
+Executando perf com fat e entrada 80
+71569457046263802294811533723186532165584657342365752577109445058227039255480148842668944867280814080000000000000000000
+
+ Performance counter stats for './fat 80':
+
+              2,47 msec task-clock                #    0,286 CPUs utilized          
+                 5      context-switches          #    2,028 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   23,522 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,008610917 seconds time elapsed
+
+       0,002944000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fatrec e entrada 90
+1485715964481761497309522733620825737885569961284688766942216863704985393094065876545992131370884059645617234469978112000000000000000000000
+
+ Performance counter stats for './fatrec 90':
+
+              1,41 msec task-clock                #    0,732 CPUs utilized          
+                 2      context-switches          #    1,422 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                59      page-faults               #   41,955 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,001921942 seconds time elapsed
+
+       0,001835000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fat e entrada 90
+1485715964481761497309522733620825737885569961284688766942216863704985393094065876545992131370884059645617234469978112000000000000000000000
+
+ Performance counter stats for './fat 90':
+
+              1,46 msec task-clock                #    0,386 CPUs utilized          
+                 2      context-switches          #    1,369 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   39,696 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,003780468 seconds time elapsed
+
+       0,002450000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fatrec e entrada 100
+93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+
+ Performance counter stats for './fatrec 100':
+
+              2,04 msec task-clock                #    0,165 CPUs utilized          
+                 3      context-switches          #    1,468 K/sec                  
+                 1      cpu-migrations            #  489,170 /sec                   
+                59      page-faults               #   28,861 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,012390235 seconds time elapsed
+
+       0,002687000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com fat e entrada 100
+93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+
+ Performance counter stats for './fat 100':
+
+              1,40 msec task-clock                #    0,750 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+                58      page-faults               #   41,470 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,001864681 seconds time elapsed
+
+       0,002000000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com divisao_inteiros
+
+ Performance counter stats for './integers':
+
+              4,71 msec task-clock                #    0,898 CPUs utilized          
+                 0      context-switches          #    0,000 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+                44      page-faults               #    9,339 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,005245563 seconds time elapsed
+
+       0,005344000 seconds user
+       0,000000000 seconds sys
+
+
+Executando perf com divisao_float
+
+ Performance counter stats for './floating':
+
+             24,28 msec task-clock                #    0,711 CPUs utilized          
+                 4      context-switches          #  164,771 /sec                   
+                 0      cpu-migrations            #    0,000 /sec                   
+                44      page-faults               #    1,812 K/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,034152307 seconds time elapsed
+
+       0,019997000 seconds user
+       0,004999000 seconds sys
+
+
+Executando perf com operacoes_arquivo
+
+ Performance counter stats for './wfile':
+
+            301,09 msec task-clock                #    0,576 CPUs utilized          
+             3.119      context-switches          #   10,359 K/sec                  
+                 0      cpu-migrations            #    0,000 /sec                   
+                52      page-faults               #  172,706 /sec                   
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+   <not supported>      L1-dcache-loads                                             
+   <not supported>      L1-dcache-load-misses                                       
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+       0,522616075 seconds time elapsed
+
+       0,024325000 seconds user
+       0,279738000 seconds sys
+
+
+niet@filthcat:~/Downloads/circuitos/DESEMPENHO$ 
