@@ -9,6 +9,6 @@
 \contentsline {subsection}{\numberline {1.2}Execução dos Testes}{6}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Coleta e Análise dos Dados}{6}{subsection.1.3}%
 \contentsline {section}{\numberline {2}Resultados e Discussão}{10}{section.2}%
-\contentsline {section}{\numberline {3}Análise das Métricas}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Métricas Detalhadas}{12}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Conclusão}{17}{section.4}%
+\contentsline {section}{\numberline {3}Análise das Métricas}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Métricas Detalhadas}{15}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Conclusão}{20}{section.4}%

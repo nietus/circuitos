@@ -19,7 +19,7 @@
 \maketitle
 
 \begin{abstract}
- Este relatório tem como objetivo explorar os conceitos de análise de desempenho de algoritmos, utilizando ferramentas como \textit{time} e \textit{perf} em um ambiente Linux, especificamente na distribuição Ubuntu 20.04 usando Docker. O estudo foca na implementação de algoritmos para cálculo do fatorial de um número, utilizando métodos recursivo e iterativo, bem como na comparação de desempenho entre eles. Adicionalmente, foram analisados algoritmos de divisão e operações de escrita em arquivo. \textbf{O DockerRun.txt} tem os dados brutos da execução do container, e os comandos utilizados podem ser encontrados no  \textbf{README.md}. Códigos do container estão no \textbf{DockerFile}, com uma implementação bem sucedida do \textit{perf} mesmo usando WSL2.
+ Este relatório tem como objetivo explorar os conceitos de análise de desempenho de algoritmos, utilizando ferramentas como \textit{time} e \textit{perf} em uma distribuição Ubuntu 20.04, tanto em container quanto em virtualização. O estudo foca na implementação de algoritmos para cálculo do fatorial de um número, utilizando métodos recursivo e iterativo, bem como na comparação de desempenho entre eles. Adicionalmente, foram analisados algoritmos de divisão e operações de escrita em arquivo. \textbf{O DockerRun.txt} tem os dados brutos da execução do container, e os comandos utilizados podem ser encontrados no  \textbf{README.md}. Códigos do container estão no \textbf{DockerFile}, com uma implementação bem sucedida do \textit{perf} mesmo usando WSL2. Também executei o script no VirtualBox, mas a diferença não foi muito grande comparada ao container; os resultados estão em \textbf{LinuxTerminal.txt} apenas para demonstração.
 \end{abstract}
 
 \tableofcontents
@@ -396,6 +396,48 @@ Os gráficos a seguir apresentam os tempos de execução dos algoritmos recursiv
     \label{fig:instrucoes_cpu}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{resultados/branch_misses.png}
+    \caption{Branch Misses dos Algoritmos}
+    \label{fig:branch_misses}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{resultados/branches.png}
+    \caption{Branches dos Algoritmos}
+    \label{fig:branches}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{resultados/l1_dcache_load_misses.png}
+    \caption{L1 DCache Load Misses dos Algoritmos}
+    \label{fig:l1_dcache_load_misses}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{resultados/l1_dcache_loads.png}
+    \caption{L1 DCache Loads dos Algoritmos}
+    \label{fig:l1_dcache_loads}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{resultados/stalled_cycles_frontend.png}
+    \caption{Stalled Cycles Frontend dos Algoritmos}
+    \label{fig:stalled_cycles_frontend}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{resultados/task_clock.png}
+    \caption{Task Clock dos Algoritmos}
+    \label{fig:task_clock}
+\end{figure}
+
 Os resultados mostram que o algoritmo iterativo tem um desempenho melhor em termos de tempo de execução e ciclos de CPU quando comparado ao algoritmo recursivo. As operações de divisão de inteiros e floats apresentaram desempenho similar, enquanto a operação de escrita em arquivo adicionou um overhead significativo devido ao I/O. A análise detalhada das métricas forneceu uma visão abrangente do comportamento dos algoritmos.
 
 \section{Análise das Métricas}
@@ -430,6 +472,8 @@ Nesta seção, apresentamos as métricas de desempenho detalhadas para diferente
 \end{itemize}
 
 \subsection{Métricas Detalhadas}
+
+Também obtidas pelo plot.py
 
 \begin{itemize}
     \item \textbf{Métricas para fatorial\_recursivo 10}:
@@ -643,6 +687,6 @@ Nesta seção, apresentamos as métricas de desempenho detalhadas para diferente
 \newpage
 
 \section{Conclusão}
-A análise de desempenho realizada revelou que, para o cálculo do fatorial de números relativamente grandes, o método iterativo tende a ser menos discrepante em termos de tempo de execução e uso de ciclos de CPU. As operações de divisão mostraram-se eficientes, enquanto as operações de escrita em arquivo apresentaram maior overhead devido ao I/O. A ferramenta \textit{perf} foi essencial para coletar métricas detalhadas de desempenho, possibilitando uma análise mais aprofundada do que o \textit{time}.
+A análise de desempenho realizada revelou que, para o cálculo do fatorial de números relativamente grandes, o método iterativo tende a ser menos discrepante em termos de tempo de execução e uso de ciclos de CPU. As operações de divisão mostraram-se eficientes, enquanto as operações de escrita em arquivo apresentaram maior overhead devido ao I/O. A ferramenta \textit{perf} foi essencial para coletar métricas detalhadas de desempenho, possibilitando uma análise mais aprofundada do que o \textit{time}. Tanto no VirtualBox quanto no Docker, a diferença entre as execuções não foi muito visível nos algoritmos de fatorial, mas nos algoritmos de divisão e, principalmente, de escrita em arquivo, o resultado foi notável.
 
 \end{document}

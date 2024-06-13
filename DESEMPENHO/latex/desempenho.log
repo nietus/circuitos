@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  12 JUN 2024 20:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  12 JUN 2024 23:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -447,7 +447,40 @@ File: resultados/instructions.png Graphic file (type png)
 <use resultados/instructions.png>
 Package pdftex.def Info: resultados/instructions.png  used on input line 394.
 (pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
- [11 <./resultados/cycles.png> <./resultados/instructions.png>] [12{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [13] [14] [15] [16] [17] (./desempenho.aux)
+<resultados/branch_misses.png, id=132, 722.7pt x 361.35pt>
+File: resultados/branch_misses.png Graphic file (type png)
+<use resultados/branch_misses.png>
+Package pdftex.def Info: resultados/branch_misses.png  used on input line 401.
+(pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
+ [11 <./resultados/cycles.png> <./resultados/instructions.png>]
+<resultados/branches.png, id=141, 722.7pt x 361.35pt>
+File: resultados/branches.png Graphic file (type png)
+<use resultados/branches.png>
+Package pdftex.def Info: resultados/branches.png  used on input line 408.
+(pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
+<resultados/l1_dcache_load_misses.png, id=142, 722.7pt x 361.35pt>
+File: resultados/l1_dcache_load_misses.png Graphic file (type png)
+<use resultados/l1_dcache_load_misses.png>
+Package pdftex.def Info: resultados/l1_dcache_load_misses.png  used on input line 415.
+(pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
+ [12 <./resultados/branch_misses.png> <./resultados/branches.png>]
+<resultados/l1_dcache_loads.png, id=151, 722.7pt x 361.35pt>
+File: resultados/l1_dcache_loads.png Graphic file (type png)
+<use resultados/l1_dcache_loads.png>
+Package pdftex.def Info: resultados/l1_dcache_loads.png  used on input line 422.
+(pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
+<resultados/stalled_cycles_frontend.png, id=152, 722.7pt x 361.35pt>
+File: resultados/stalled_cycles_frontend.png Graphic file (type png)
+<use resultados/stalled_cycles_frontend.png>
+Package pdftex.def Info: resultados/stalled_cycles_frontend.png  used on input line 429.
+(pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
+ [13 <./resultados/l1_dcache_load_misses.png> <./resultados/l1_dcache_loads.png>]
+<resultados/task_clock.png, id=163, 722.7pt x 361.35pt>
+File: resultados/task_clock.png Graphic file (type png)
+<use resultados/task_clock.png>
+Package pdftex.def Info: resultados/task_clock.png  used on input line 436.
+(pdftex.def)             Requested size: 452.9679pt x 226.48279pt.
+ [14 <./resultados/stalled_cycles_frontend.png> <./resultados/task_clock.png>] [15{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [16] [17] [18] [19] [20] (./desempenho.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
@@ -456,18 +489,18 @@ Package rerunfilecheck Info: File `desempenho.out' has not changed.
 (rerunfilecheck)             Checksum: E9BA881A1C484AF8969996F9638AC9C6;2165.
  ) 
 Here is how much of TeX's memory you used:
- 10724 strings out of 474103
- 167438 string characters out of 5747481
- 1938496 words of memory out of 5000000
- 32938 multiletter control sequences out of 15000+600000
+ 10781 strings out of 474103
+ 169183 string characters out of 5747481
+ 1939496 words of memory out of 5000000
+ 32986 multiletter control sequences out of 15000+600000
  566169 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,885b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,1066b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on desempenho.pdf (17 pages, 375808 bytes).
+Output written on desempenho.pdf (20 pages, 660946 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 130 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 267 PDF objects out of 1000 (max. 8388607)
+ 199 compressed objects within 2 object streams
+ 51 named destinations out of 1000 (max. 500000)
+ 160 words of extra memory for PDF output out of 10000 (max. 10000000)
 
